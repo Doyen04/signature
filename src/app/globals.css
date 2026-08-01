@@ -41,7 +41,7 @@
   --color-border-default: #000000;
   --color-border-light:   #d1e0e4;
 
-  /* === Typography (Next.js font vars injected by layout.tsx) === */
+  /* === Typography === */
   --font-display: var(--font-playfair), Georgia, serif;
   --font-heading:  var(--font-alumni), var(--font-playfair), serif;
   --font-body:     var(--font-inter), system-ui, sans-serif;
@@ -97,7 +97,7 @@ body {
 .section    { padding: 96px 0; }
 .section-sm { padding: 64px 0; }
 
-/* ===== BUTTONS ===== */
+/* ===== BUTTONS (FLAT - NO SHADOWS) ===== */
 .btn-primary {
   display: inline-flex;
   align-items: center;
@@ -113,15 +113,13 @@ body {
   border-radius: var(--radius-full);
   cursor: pointer;
   transition: background-color var(--dur-fast) var(--ease-std),
-              transform var(--dur-fast) var(--ease-std),
-              box-shadow var(--dur-fast) var(--ease-std);
+              transform var(--dur-fast) var(--ease-std);
   white-space: nowrap;
 }
 .btn-primary:hover {
   background-color: var(--color-primary-hover);
   border-color: var(--color-primary-hover);
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(117,128,239,0.4);
 }
 .btn-primary:active { transform: scale(0.96); }
 
@@ -163,14 +161,12 @@ body {
   border-radius: var(--radius-full);
   cursor: pointer;
   transition: background-color var(--dur-fast) var(--ease-std),
-              transform var(--dur-fast) var(--ease-std),
-              box-shadow var(--dur-fast) var(--ease-std);
+              transform var(--dur-fast) var(--ease-std);
   white-space: nowrap;
 }
 .btn-whatsapp:hover {
   background-color: #1ebe5d;
   transform: translateY(-3px);
-  box-shadow: 0 8px 28px rgba(37,211,102,0.45);
 }
 .btn-whatsapp:active { transform: scale(0.96); }
 
@@ -202,6 +198,7 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: 6px;
   padding: 4px 16px;
   border-radius: var(--radius-full);
   font-family: var(--font-body);
@@ -216,12 +213,12 @@ body {
 .badge-amber   { background: var(--color-brand-gold);    color: var(--color-primary); }
 .badge-dark    { background: rgba(255,255,255,0.1);      color: var(--color-accent-lime); border: 1px solid rgba(255,255,255,0.15); }
 
-/* ===== CARD ===== */
+/* ===== CARD (FLAT - NO SHADOWS) ===== */
 .card {
   border-radius: var(--radius-md);
   overflow: hidden;
   position: relative;
-  transition: transform var(--dur-base) var(--ease-std), box-shadow var(--dur-base) var(--ease-std);
+  transition: transform var(--dur-base) var(--ease-std);
 }
 .card:hover { transform: translateY(-6px) scale(1.02); }
 
@@ -230,13 +227,9 @@ body {
 @keyframes fadeInLeft  { from { opacity:0; transform: translateX(-32px);} to { opacity:1; transform:translateX(0); } }
 @keyframes fadeInRight { from { opacity:0; transform: translateX(32px); } to { opacity:1; transform:translateX(0); } }
 @keyframes float       { 0%,100%{transform:translateY(0) rotate(0deg);} 33%{transform:translateY(-12px) rotate(2deg);} 66%{transform:translateY(-6px) rotate(-1deg);} }
-@keyframes pulse-glow  { 0%,100%{box-shadow:0 0 0 0 rgba(37,211,102,0.5);} 50%{box-shadow:0 0 0 16px rgba(37,211,102,0);} }
 @keyframes spin-slow   { from{transform:rotate(0deg);} to{transform:rotate(360deg);} }
-@keyframes marquee     { from{transform:translateX(0);} to{transform:translateX(-50%);} }
-@keyframes shimmer     { 0%{background-position:-200% center;} 100%{background-position:200% center;} }
 
 .animate-float      { animation: float 6s ease-in-out infinite; }
-.animate-pulse-glow { animation: pulse-glow 2s ease-in-out infinite; }
 .animate-spin-slow  { animation: spin-slow 20s linear infinite; }
 
 /* === Scroll Reveal === */

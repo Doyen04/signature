@@ -2,12 +2,13 @@
 
 import Image from "next/image";
 import { useEffect, useRef } from "react";
+import { Flame, Grains, Heart, Clock, Quotes } from "@phosphor-icons/react";
 
 const features = [
-  { icon:"🔥", title:"Rich & Spicy",     desc:"Authentic Ayamase brewed with the finest peppers." },
-  { icon:"🌾", title:"100% Ofada",       desc:"Genuine local ofada rice, stone-milled and fragrant." },
-  { icon:"❤️", title:"Made With Love",   desc:"Handcrafted with passion, patience and precision." },
-  { icon:"⏰", title:"Worth The Wait",   desc:"Pre-order guarantees your spot. Great food takes time." },
+  { icon: Flame,  title:"Rich & Spicy",     desc:"Authentic Ayamase brewed with the finest peppers." },
+  { icon: Grains, title:"100% Ofada",       desc:"Genuine local ofada rice, stone-milled and fragrant." },
+  { icon: Heart,  title:"Made With Love",   desc:"Handcrafted with passion, patience and precision." },
+  { icon: Clock,  title:"Worth The Wait",   desc:"Pre-order guarantees your spot. Great food takes time." },
 ];
 
 export default function About() {
@@ -23,18 +24,17 @@ export default function About() {
   return (
     <section id="about" ref={ref} style={{ background:"var(--color-bg-cream)", position:"relative", overflow:"hidden" }} aria-label="About Venant Cutlery">
 
-      {/* Floating decorative dashes — matches Cardtonic scattered elements */}
+      {/* Floating decorative dashes */}
       <div style={{ position:"absolute", top:60, left:40, width:4, height:60, background:"var(--color-accent-pink)", borderRadius:2, transform:"rotate(-20deg)", opacity:0.7 }} />
       <div style={{ position:"absolute", top:80, left:60, width:4, height:40, background:"var(--color-accent-pink)", borderRadius:2, transform:"rotate(-20deg)", opacity:0.5 }} />
       <div style={{ position:"absolute", top:100, right:60, width:4, height:60, background:"var(--color-accent-pink)", borderRadius:2, transform:"rotate(20deg)", opacity:0.7 }} />
       <div style={{ position:"absolute", top:60, right:40, width:4, height:40, background:"var(--color-accent-pink)", borderRadius:2, transform:"rotate(20deg)", opacity:0.5 }} />
-      {/* Yellow dots */}
       <div style={{ position:"absolute", top:"40%", left:30, width:16, height:16, borderRadius:"50%", background:"var(--color-accent-yellow)", opacity:0.8 }} />
       <div style={{ position:"absolute", top:"60%", right:30, width:20, height:20, borderRadius:"50%", background:"var(--color-accent-yellow)", opacity:0.6 }} />
 
       <div className="container section" style={{ position:"relative", zIndex:1 }}>
 
-        {/* Big centered statement like "WE SAW A GAP" — Cardtonic style */}
+        {/* Header */}
         <div className="reveal" style={{ textAlign:"center", marginBottom:72 }}>
           <p style={{ fontFamily:"var(--font-body)", fontSize:14, fontWeight:700, letterSpacing:"0.15em", textTransform:"uppercase", color:"var(--color-primary)", marginBottom:16, opacity:0.6 }}>
             Our Story
@@ -62,13 +62,12 @@ export default function About() {
                 fontStyle:"normal",
                 marginLeft:16,
                 verticalAlign:"middle",
-                boxShadow:"0 8px 24px rgba(255,0,133,0.4)",
               }}>!</span>
             </span>
           </h2>
         </div>
 
-        {/* Two column: image + features */}
+        {/* Two column layout */}
         <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:56, alignItems:"center" }} className="about-grid">
           {/* Image */}
           <div className="reveal-left" style={{ position:"relative" }}>
@@ -79,7 +78,6 @@ export default function About() {
               style={{
                 width:"100%", height:"auto", objectFit:"cover",
                 borderRadius:"var(--radius-lg)",
-                boxShadow:"0 32px 80px rgba(0,36,68,0.18)",
                 display:"block",
                 transition:"transform 0.4s ease",
               }}
@@ -89,12 +87,15 @@ export default function About() {
             {/* Overlaid quote */}
             <div style={{
               position:"absolute", bottom:20, left:20, right:20,
-              background:"rgba(0,36,68,0.9)", backdropFilter:"blur(8px)",
+              background:"rgba(0,36,68,0.95)", backdropFilter:"blur(8px)",
               borderRadius:"var(--radius-md)", padding:"18px 22px",
               borderLeft:"4px solid var(--color-brand-gold)",
             }}>
+              <div style={{ color: "var(--color-brand-gold)", marginBottom: 4 }}>
+                <Quotes size={24} weight="fill" />
+              </div>
               <p style={{ fontFamily:"var(--font-display)", fontStyle:"italic", fontSize:18, color:"var(--color-brand-gold)", lineHeight:1.4 }}>
-                &ldquo;A rich, spicy, and unforgettable experience made just for you.&rdquo;
+                A rich, spicy, and unforgettable experience made just for you.
               </p>
               <p style={{ fontFamily:"var(--font-body)", fontSize:12, color:"rgba(255,255,255,0.5)", marginTop:8 }}>— Venant Cutlery</p>
             </div>
@@ -109,30 +110,35 @@ export default function About() {
               with Ayamase stew and accompanied by the finest insides of meat.
             </p>
             <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:16 }}>
-              {features.map((f, i) => (
-                <div key={f.title}
-                  className={`reveal delay-${(i+1)*100}`}
-                  style={{
-                    background: i%2===0 ? "var(--color-primary)" : "var(--color-bg-lime)",
-                    borderRadius:"var(--radius-md)",
-                    padding:"22px 18px",
-                    transition:"transform 0.25s ease, box-shadow 0.25s ease",
-                    cursor:"default",
-                  }}
-                  onMouseEnter={e => { (e.currentTarget as HTMLElement).style.transform="translateY(-6px)"; (e.currentTarget as HTMLElement).style.boxShadow="0 16px 40px rgba(0,0,0,0.2)"; }}
-                  onMouseLeave={e => { (e.currentTarget as HTMLElement).style.transform="none"; (e.currentTarget as HTMLElement).style.boxShadow="none"; }}
-                >
-                  <div style={{ fontSize:26, marginBottom:10 }}>{f.icon}</div>
-                  <h3 style={{ fontFamily:"var(--font-display)", fontWeight:700, fontSize:17, color: i%2===0?"#fff":"var(--color-primary)", marginBottom:6 }}>{f.title}</h3>
-                  <p style={{ fontFamily:"var(--font-body)", fontSize:13, color: i%2===0?"rgba(255,255,255,0.7)":"rgba(0,36,68,0.7)", lineHeight:1.6 }}>{f.desc}</p>
-                </div>
-              ))}
+              {features.map((f, i) => {
+                const Icon = f.icon;
+                return (
+                  <div key={f.title}
+                    className={`reveal delay-${(i+1)*100}`}
+                    style={{
+                      background: i%2===0 ? "var(--color-primary)" : "var(--color-bg-lime)",
+                      borderRadius:"var(--radius-md)",
+                      padding:"22px 18px",
+                      transition:"transform 0.25s ease",
+                      cursor:"default",
+                    }}
+                    onMouseEnter={e => { (e.currentTarget as HTMLElement).style.transform="translateY(-6px)"; }}
+                    onMouseLeave={e => { (e.currentTarget as HTMLElement).style.transform="none"; }}
+                  >
+                    <div style={{ fontSize:26, marginBottom:10, color: i%2===0 ? "var(--color-brand-gold)" : "var(--color-primary)" }}>
+                      <Icon size={32} weight="fill" />
+                    </div>
+                    <h3 style={{ fontFamily:"var(--font-display)", fontWeight:700, fontSize:17, color: i%2===0?"#fff":"var(--color-primary)", marginBottom:6 }}>{f.title}</h3>
+                    <p style={{ fontFamily:"var(--font-body)", fontSize:13, color: i%2===0?"rgba(255,255,255,0.7)":"rgba(0,36,68,0.7)", lineHeight:1.6 }}>{f.desc}</p>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>
       </div>
 
-      {/* Wave divider bottom — dark follows */}
+      {/* Wave divider */}
       <div style={{ position:"absolute", bottom:-1, left:0, right:0, lineHeight:0, zIndex:2 }}>
         <svg viewBox="0 0 1440 80" preserveAspectRatio="none" style={{ display:"block", width:"100%", height:80 }}>
           <path d="M0,0 C480,80 960,0 1440,60 L1440,80 L0,80 Z" fill="var(--color-bg-dark)" />

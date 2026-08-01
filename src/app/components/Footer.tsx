@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { CookingPot, MapPin, WhatsappLogo } from "@phosphor-icons/react";
 
 const WA_LINK =
   "https://wa.me/2349131166934?text=Hi%20Venant%20Cutlery!%20I'd%20like%20to%20pre-order%20the%20Signature%20Ofada%20Rice.%20%F0%9F%8D%9A";
@@ -69,11 +70,11 @@ export default function Footer() {
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
-                  fontSize: 24,
+                  color: "var(--color-primary)",
                   flexShrink: 0,
                 }}
               >
-                👨‍🍳
+                <CookingPot size={24} weight="fill" />
               </div>
               <div>
                 <div
@@ -126,7 +127,7 @@ export default function Footer() {
                 marginBottom: 12,
               }}
             >
-              <span style={{ fontSize: 16, marginTop: 1 }}>📍</span>
+              <MapPin size={18} weight="fill" style={{ color: "var(--color-brand-gold)", marginTop: 2 }} />
               <div>
                 <p
                   style={{
@@ -155,7 +156,7 @@ export default function Footer() {
 
             {/* WhatsApp */}
             <div style={{ display: "flex", alignItems: "flex-start", gap: 8 }}>
-              <span style={{ fontSize: 16, marginTop: 1 }}>💬</span>
+              <WhatsappLogo size={18} weight="fill" style={{ color: "#25D366", marginTop: 2 }} />
               <div>
                 <p
                   style={{
@@ -264,9 +265,9 @@ export default function Footer() {
               rel="noopener noreferrer"
               id="footer-preorder-btn"
               className="btn-whatsapp"
-              style={{ fontSize: 14, padding: "12px 20px", display: "inline-flex" }}
+              style={{ fontSize: 14, padding: "12px 20px", display: "inline-flex", gap: 6 }}
             >
-              Pre-Order Now
+              <WhatsappLogo size={18} weight="fill" /> Pre-Order Now
             </a>
           </div>
         </div>

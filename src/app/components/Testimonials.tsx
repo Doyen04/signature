@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { Star, MapPin, User, Smiley } from "@phosphor-icons/react";
 
 const testimonials = [
   {
@@ -8,28 +9,24 @@ const testimonials = [
     location: "Ado Ekiti",
     rating: 5,
     text: "This is the best Ofada Rice I've had in Ekiti! The stew is rich, spicy and packed with assorted meat. Pre-ordering was super easy via WhatsApp.",
-    emoji: "👩🏾",
   },
   {
     name: "Tunde B.",
     location: "Ado Ekiti",
     rating: 5,
     text: "Venant Cutlery doesn't play with flavour. The Ponmo was soft and the Ayamase stew was on another level. Worth every naira. Worth the wait indeed!",
-    emoji: "👨🏿",
   },
   {
     name: "Funmi A.",
     location: "Ekiti State",
     rating: 5,
     text: "I added Egg and Fish as add-ons and wow — the combination was heavenly. Clean presentation, hot food, and amazing taste. Will definitely be pre-ordering weekly!",
-    emoji: "👩🏽",
   },
   {
     name: "Chidi M.",
     location: "Ado Ekiti",
     rating: 5,
     text: "The plantain was perfectly fried and the rice had that authentic ofada aroma. This is home cooking at its finest. Highly recommend!",
-    emoji: "👨🏾",
   },
 ];
 
@@ -37,15 +34,14 @@ function StarRating({ count }: { count: number }) {
   return (
     <div style={{ display: "flex", gap: 3 }}>
       {Array.from({ length: 5 }).map((_, i) => (
-        <span
+        <Star
           key={i}
+          size={16}
+          weight="fill"
           style={{
             color: i < count ? "var(--color-brand-gold)" : "rgba(255,255,255,0.2)",
-            fontSize: 16,
           }}
-        >
-          ★
-        </span>
+        />
       ))}
     </div>
   );
@@ -82,25 +78,11 @@ export default function Testimonials() {
       }}
       aria-label="Customer testimonials"
     >
-      {/* Decorative glow */}
-      <div
-        style={{
-          position: "absolute",
-          top: -120,
-          right: -120,
-          width: 400,
-          height: 400,
-          borderRadius: "50%",
-          background: "radial-gradient(circle, rgba(244,167,0,0.15) 0%, transparent 70%)",
-          pointerEvents: "none",
-        }}
-      />
-
       <div className="container section" style={{ position: "relative", zIndex: 1 }}>
-        {/* Massive header */}
+        {/* Header */}
         <div className="reveal" style={{ textAlign: "center", marginBottom: 64 }}>
           <span className="badge badge-dark" style={{ marginBottom: 16 }}>
-            ⭐ Happy Customers
+            <Smiley size={18} weight="fill" /> Happy Customers
           </span>
           <h2
             style={{
@@ -121,7 +103,7 @@ export default function Testimonials() {
           </h2>
         </div>
 
-        {/* Grid */}
+        {/* Grid — flat, no shadow */}
         <div
           style={{
             display: "grid",
@@ -169,12 +151,12 @@ export default function Testimonials() {
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
-                    fontSize: 24,
+                    color: "var(--color-brand-gold)",
                     flexShrink: 0,
                     border: "2px solid rgba(244,167,0,0.3)",
                   }}
                 >
-                  {t.emoji}
+                  <User size={24} weight="fill" />
                 </div>
                 <div>
                   <p
@@ -192,9 +174,12 @@ export default function Testimonials() {
                       fontFamily: "var(--font-body)",
                       fontSize: 12,
                       color: "rgba(255,255,255,0.5)",
+                      display: "flex",
+                      alignItems: "center",
+                      gap: 4,
                     }}
                   >
-                    📍 {t.location}
+                    <MapPin size={14} weight="fill" /> {t.location}
                   </p>
                 </div>
                 <div style={{ marginLeft: "auto" }}>
@@ -218,7 +203,7 @@ export default function Testimonials() {
         </div>
       </div>
 
-      {/* Wave bottom divider — Lime section follows */}
+      {/* Wave divider */}
       <div style={{ position: "absolute", bottom: -1, left: 0, right: 0, lineHeight: 0, zIndex: 2 }}>
         <svg viewBox="0 0 1440 80" preserveAspectRatio="none" style={{ display: "block", width: "100%", height: 80 }}>
           <path d="M0,0 C480,80 960,0 1440,40 L1440,80 L0,80 Z" fill="var(--color-bg-lime)" />

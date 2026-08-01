@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { CookingPot, ShoppingCart } from "@phosphor-icons/react";
 
 const WA_LINK =
   "https://wa.me/2349131166934?text=Hi%20Venant%20Cutlery!%20I'd%20like%20to%20pre-order%20the%20Signature%20Ofada%20Rice.%20%F0%9F%8D%9A";
@@ -31,8 +32,8 @@ export default function Navbar() {
         zIndex: "var(--z-header)",
         backgroundColor: "var(--color-primary)",
         color: "var(--color-text-inverse)",
-        transition: `box-shadow ${scrolled ? "0.3s" : "0s"} ease`,
-        boxShadow: scrolled ? "0 4px 24px rgba(0,0,0,0.35)" : "none",
+        transition: "border-color 0.3s ease",
+        borderBottom: scrolled ? "1px solid rgba(255,255,255,0.1)" : "1px solid transparent",
       }}
       aria-label="Main navigation"
     >
@@ -62,15 +63,15 @@ export default function Navbar() {
               width: 40,
               height: 40,
               borderRadius: "50%",
-              backgroundColor: "var(--color-accent-yellow)",
+              backgroundColor: "var(--color-brand-gold)",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              fontSize: 22,
+              color: "var(--color-primary)",
               flexShrink: 0,
             }}
           >
-            👨‍🍳
+            <CookingPot size={22} weight="fill" />
           </div>
           <div>
             <div
@@ -91,7 +92,7 @@ export default function Navbar() {
                 fontSize: 11,
                 letterSpacing: "0.18em",
                 textTransform: "uppercase",
-                color: "var(--color-accent-yellow)",
+                color: "var(--color-brand-gold)",
                 lineHeight: 1,
               }}
             >
@@ -144,14 +145,15 @@ export default function Navbar() {
           rel="noopener noreferrer"
           className="btn-primary desktop-cta"
           style={{
-            backgroundColor: "var(--color-accent-yellow)",
+            backgroundColor: "var(--color-brand-gold)",
+            borderColor: "var(--color-brand-gold)",
             color: "var(--color-primary)",
             fontWeight: 700,
             fontSize: 14,
             padding: "10px 20px",
           }}
         >
-          🛒 Pre-Order Now
+          <ShoppingCart size={18} weight="bold" /> Pre-Order Now
         </a>
 
         {/* Hamburger */}
@@ -258,13 +260,14 @@ export default function Navbar() {
           className="btn-primary"
           style={{
             marginTop: 8,
-            backgroundColor: "var(--color-accent-yellow)",
+            backgroundColor: "var(--color-brand-gold)",
+            borderColor: "var(--color-brand-gold)",
             color: "var(--color-primary)",
             fontWeight: 700,
             justifyContent: "center",
           }}
         >
-          🛒 Pre-Order Now
+          <ShoppingCart size={18} weight="bold" /> Pre-Order Now
         </a>
       </div>
 
