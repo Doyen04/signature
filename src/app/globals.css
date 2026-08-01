@@ -1,5 +1,12 @@
 @import "tailwindcss";
 
+/* ===== TAILWIND THEME (v4) ===== */
+@theme {
+  --font-display: var(--font-playfair), Georgia, serif;
+  --font-heading: var(--font-alumni), var(--font-playfair), serif;
+  --font-body: var(--font-inter), system-ui, sans-serif;
+}
+
 /* ===== DESIGN TOKENS ===== */
 :root {
   /* === Core Colors === */
@@ -87,181 +94,190 @@
 }
 
 /* ===== LAYOUT ===== */
-.container {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding-left: 64px !important;
-  padding-right: 64px !important;
-}
-@media (max-width: 768px) {
+/* NOTE: kept in `@layer utilities` (not `components`) so these win over
+   Tailwind v4's built-in `.container` utility, which lives in the same
+   layer but is emitted earlier in source order. */
+@layer utilities {
   .container {
-    padding-left: 40px !important;
-    padding-right: 40px !important;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-left: 64px;
+    padding-right: 64px;
   }
-}
-@media (max-width: 480px) {
-  .container {
-    padding-left: 32px !important;
-    padding-right: 32px !important;
+  @media (max-width: 768px) {
+    .container {
+      padding-left: 40px;
+      padding-right: 40px;
+    }
   }
+  @media (max-width: 480px) {
+    .container {
+      padding-left: 32px;
+      padding-right: 32px;
+    }
+  }
+  .section    { padding-top: 96px; padding-bottom: 96px; }
+  .section-sm { padding-top: 64px; padding-bottom: 64px; }
 }
-.section    { padding: 96px 0; }
-.section-sm { padding: 64px 0; }
 
 /* ===== BUTTONS (FLAT - NO SHADOWS) ===== */
-.btn-primary {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: var(--sp-2);
-  background-color: var(--color-primary);
-  color: #fff;
-  font-family: var(--font-body);
-  font-size: 15px;
-  font-weight: 700;
-  padding: 14px 28px;
-  border: 2px solid var(--color-primary);
-  border-radius: var(--radius-full);
-  cursor: pointer;
-  transition: background-color var(--dur-fast) var(--ease-std),
-              transform var(--dur-fast) var(--ease-std);
-  white-space: nowrap;
-}
-.btn-primary:hover {
-  background-color: var(--color-primary-hover);
-  border-color: var(--color-primary-hover);
-  transform: translateY(-2px);
-}
-.btn-primary:active { transform: scale(0.96); }
+@layer components {
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--sp-2);
+    background-color: var(--color-primary);
+    color: #fff;
+    font-family: var(--font-body);
+    font-size: 15px;
+    font-weight: 700;
+    padding: 14px 28px;
+    border: 2px solid var(--color-primary);
+    border-radius: var(--radius-full);
+    cursor: pointer;
+    transition: background-color var(--dur-fast) var(--ease-std),
+                transform var(--dur-fast) var(--ease-std);
+    white-space: nowrap;
+  }
+  .btn-primary:hover {
+    background-color: var(--color-primary-hover);
+    border-color: var(--color-primary-hover);
+    transform: translateY(-2px);
+  }
+  .btn-primary:active { transform: scale(0.96); }
 
-.btn-outline {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: var(--sp-2);
-  background-color: transparent;
-  color: var(--color-primary);
-  font-family: var(--font-body);
-  font-size: 15px;
-  font-weight: 700;
-  padding: 14px 28px;
-  border: 2px solid var(--color-primary);
-  border-radius: var(--radius-full);
-  cursor: pointer;
-  transition: all var(--dur-fast) var(--ease-std);
-  white-space: nowrap;
-}
-.btn-outline:hover {
-  background-color: var(--color-primary);
-  color: #fff;
-  transform: translateY(-2px);
-}
+  .btn-outline {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--sp-2);
+    background-color: transparent;
+    color: var(--color-primary);
+    font-family: var(--font-body);
+    font-size: 15px;
+    font-weight: 700;
+    padding: 14px 28px;
+    border: 2px solid var(--color-primary);
+    border-radius: var(--radius-full);
+    cursor: pointer;
+    transition: all var(--dur-fast) var(--ease-std);
+    white-space: nowrap;
+  }
+  .btn-outline:hover {
+    background-color: var(--color-primary);
+    color: #fff;
+    transform: translateY(-2px);
+  }
 
-.btn-whatsapp {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: var(--sp-2);
-  background-color: #25D366;
-  color: #fff;
-  font-family: var(--font-body);
-  font-size: 15px;
-  font-weight: 700;
-  padding: 14px 28px;
-  border: none;
-  border-radius: var(--radius-full);
-  cursor: pointer;
-  transition: background-color var(--dur-fast) var(--ease-std),
-              transform var(--dur-fast) var(--ease-std);
-  white-space: nowrap;
-}
-.btn-whatsapp:hover {
-  background-color: #1ebe5d;
-  transform: translateY(-3px);
-}
-.btn-whatsapp:active { transform: scale(0.96); }
+  .btn-whatsapp {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--sp-2);
+    background-color: #25D366;
+    color: #fff;
+    font-family: var(--font-body);
+    font-size: 15px;
+    font-weight: 700;
+    padding: 14px 28px;
+    border: none;
+    border-radius: var(--radius-full);
+    cursor: pointer;
+    transition: background-color var(--dur-fast) var(--ease-std),
+                transform var(--dur-fast) var(--ease-std);
+    white-space: nowrap;
+  }
+  .btn-whatsapp:hover {
+    background-color: #1ebe5d;
+    transform: translateY(-3px);
+  }
+  .btn-whatsapp:active { transform: scale(0.96); }
 
-.btn-dark {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: var(--sp-2);
-  background-color: var(--color-bg-dark);
-  color: #fff;
-  font-family: var(--font-body);
-  font-size: 15px;
-  font-weight: 700;
-  padding: 14px 28px;
-  border: 2px solid rgba(255,255,255,0.15);
-  border-radius: var(--radius-full);
-  cursor: pointer;
-  transition: all var(--dur-fast) var(--ease-std);
-  white-space: nowrap;
-}
-.btn-dark:hover {
-  border-color: var(--color-accent-lime);
-  color: var(--color-accent-lime);
-  transform: translateY(-2px);
-}
+  .btn-dark {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--sp-2);
+    background-color: var(--color-bg-dark);
+    color: #fff;
+    font-family: var(--font-body);
+    font-size: 15px;
+    font-weight: 700;
+    padding: 14px 28px;
+    border: 2px solid rgba(255,255,255,0.15);
+    border-radius: var(--radius-full);
+    cursor: pointer;
+    transition: all var(--dur-fast) var(--ease-std);
+    white-space: nowrap;
+  }
+  .btn-dark:hover {
+    border-color: var(--color-accent-lime);
+    color: var(--color-accent-lime);
+    transform: translateY(-2px);
+  }
 
-/* ===== BADGE ===== */
-.badge {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  padding: 4px 16px;
-  border-radius: var(--radius-full);
-  font-family: var(--font-body);
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-}
-.badge-pink    { background: var(--color-accent-pink);   color: #fff; }
-.badge-lime    { background: var(--color-accent-lime);   color: var(--color-primary); }
-.badge-navy    { background: var(--color-primary);       color: #fff; }
-.badge-amber   { background: var(--color-brand-gold);    color: var(--color-primary); }
-.badge-dark    { background: rgba(255,255,255,0.1);      color: var(--color-accent-lime); border: 1px solid rgba(255,255,255,0.15); }
+  /* ===== BADGE ===== */
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 4px 16px;
+    border-radius: var(--radius-full);
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+  .badge-pink    { background: var(--color-accent-pink);   color: #fff; }
+  .badge-lime    { background: var(--color-accent-lime);   color: var(--color-primary); }
+  .badge-navy    { background: var(--color-primary);       color: #fff; }
+  .badge-amber   { background: var(--color-brand-gold);    color: var(--color-primary); }
+  .badge-dark    { background: rgba(255,255,255,0.1);      color: var(--color-accent-lime); border: 1px solid rgba(255,255,255,0.15); }
 
-/* ===== CARD (FLAT - NO SHADOWS) ===== */
-.card {
-  border-radius: var(--radius-md);
-  overflow: hidden;
-  position: relative;
-  transition: transform var(--dur-base) var(--ease-std);
+  /* ===== CARD (FLAT - NO SHADOWS) ===== */
+  .card {
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    position: relative;
+    transition: transform var(--dur-base) var(--ease-std);
+  }
+  .card:hover { transform: translateY(-6px) scale(1.02); }
 }
-.card:hover { transform: translateY(-6px) scale(1.02); }
 
 /* ===== ANIMATIONS ===== */
-@keyframes fadeInUp    { from { opacity:0; transform: translateY(32px); } to { opacity:1; transform:translateY(0); } }
-@keyframes fadeInLeft  { from { opacity:0; transform: translateX(-32px);} to { opacity:1; transform:translateX(0); } }
-@keyframes fadeInRight { from { opacity:0; transform: translateX(32px); } to { opacity:1; transform:translateX(0); } }
-@keyframes float       { 0%,100%{transform:translateY(0) rotate(0deg);} 33%{transform:translateY(-12px) rotate(2deg);} 66%{transform:translateY(-6px) rotate(-1deg);} }
-@keyframes spin-slow   { from{transform:rotate(0deg);} to{transform:rotate(360deg);} }
+@layer utilities {
+  @keyframes fadeInUp    { from { opacity:0; transform: translateY(32px); } to { opacity:1; transform:translateY(0); } }
+  @keyframes fadeInLeft  { from { opacity:0; transform: translateX(-32px);} to { opacity:1; transform:translateX(0); } }
+  @keyframes fadeInRight { from { opacity:0; transform: translateX(32px); } to { opacity:1; transform:translateX(0); } }
+  @keyframes float       { 0%,100%{transform:translateY(0) rotate(0deg);} 33%{transform:translateY(-12px) rotate(2deg);} 66%{transform:translateY(-6px) rotate(-1deg);} }
+  @keyframes spin-slow   { from{transform:rotate(0deg);} to{transform:rotate(360deg);} }
 
-.animate-float      { animation: float 6s ease-in-out infinite; }
-.animate-spin-slow  { animation: spin-slow 20s linear infinite; }
+  .animate-float      { animation: float 6s ease-in-out infinite; }
+  .animate-spin-slow  { animation: spin-slow 20s linear infinite; }
 
-@keyframes vspin    { to { transform: rotate(360deg); } }
-.animate-vspin      { animation: vspin 0.9s linear infinite; }
+  @keyframes vspin    { to { transform: rotate(360deg); } }
+  .animate-vspin      { animation: vspin 0.9s linear infinite; }
 
-.play-btn-circle:hover {
-  transform: scale(1.1);
-  box-shadow: 0 12px 40px rgba(247,216,0,0.55);
+  .play-btn-circle:hover {
+    transform: scale(1.1);
+    box-shadow: 0 12px 40px rgba(247,216,0,0.55);
+  }
+
+  /* === Scroll Reveal === */
+  .reveal       { opacity:0; transform:translateY(30px);  transition: opacity 0.65s ease, transform 0.65s ease; }
+  .reveal-left  { opacity:0; transform:translateX(-30px); transition: opacity 0.65s ease, transform 0.65s ease; }
+  .reveal-right { opacity:0; transform:translateX(30px);  transition: opacity 0.65s ease, transform 0.65s ease; }
+  .reveal.revealed, .reveal-left.revealed, .reveal-right.revealed { opacity:1; transform:none; }
+
+  .delay-100 { transition-delay:.1s; } .delay-200 { transition-delay:.2s; }
+  .delay-300 { transition-delay:.3s; } .delay-400 { transition-delay:.4s; }
+  .delay-500 { transition-delay:.5s; } .delay-600 { transition-delay:.6s; }
 }
 
 @media (max-width: 600px) {
   #video { padding: 64px 0 60px; }
 }
-
-/* === Scroll Reveal === */
-.reveal       { opacity:0; transform:translateY(30px);  transition: opacity 0.65s ease, transform 0.65s ease; }
-.reveal-left  { opacity:0; transform:translateX(-30px); transition: opacity 0.65s ease, transform 0.65s ease; }
-.reveal-right { opacity:0; transform:translateX(30px);  transition: opacity 0.65s ease, transform 0.65s ease; }
-.reveal.revealed, .reveal-left.revealed, .reveal-right.revealed { opacity:1; transform:none; }
-
-.delay-100 { transition-delay:.1s; } .delay-200 { transition-delay:.2s; }
-.delay-300 { transition-delay:.3s; } .delay-400 { transition-delay:.4s; }
-.delay-500 { transition-delay:.5s; } .delay-600 { transition-delay:.6s; }

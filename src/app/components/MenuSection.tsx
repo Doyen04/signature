@@ -35,122 +35,93 @@ export default function MenuSection() {
   };
 
   return (
-    <section id="menu" ref={ref} style={{ background:"var(--color-bg-dark)", position:"relative", overflow:"hidden" }} aria-label="Menu">
+    <section id="menu" ref={ref} className="bg-(--color-bg-dark) relative overflow-hidden" aria-label="Menu">
 
-      <div className="container section" style={{ position:"relative", zIndex:1 }}>
+      <div className="container section relative z-1">
 
         {/* Header */}
-        <div className="reveal" style={{ textAlign:"center", marginBottom:72 }}>
-          <h2 style={{
-            fontFamily:"var(--font-display)",
-            fontWeight:900,
-            fontSize:"clamp(48px, 9vw, 104px)",
-            color:"#fff",
-            lineHeight:0.95,
-            textTransform:"uppercase",
-            letterSpacing:"-0.02em",
-          }}>
-            <span style={{ display:"block" }}>THE ONE &</span>
-            <span style={{ display:"block", color:"var(--color-brand-gold)", fontStyle:"italic" }}>Only Dish</span>
-            <span style={{ display:"block" }}>YOU NEED</span>
+        <div className="reveal text-center mb-18">
+          <h2 className="font-display font-black text-[clamp(48px,9vw,104px)] text-white leading-[0.95] uppercase tracking-[-0.02em]">
+            <span className="block">THE ONE &</span>
+            <span className="block text-(--color-brand-gold) italic">Only Dish</span>
+            <span className="block">YOU NEED</span>
           </h2>
         </div>
 
         {/* Menu card */}
-        <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:2, borderRadius:"var(--radius-lg)", overflow:"hidden" }} className="menu-grid">
+        <div className="menu-grid grid grid-cols-1 md:grid-cols-2 gap-[2px] rounded-[var(--radius-lg)] overflow-hidden">
 
           {/* Image panel */}
-          <div className="reveal-left" style={{ position:"relative", minHeight:500 }}>
+          <div className="reveal-left relative min-h-[500px]">
             <Image
               src="/ofada-hero.png"
               alt="Venant Cutlery Signature Ofada Rice"
               width={600} height={600}
-              style={{ width:"100%", height:"100%", objectFit:"cover", display:"block", minHeight:500 }}
+              className="w-full h-full object-cover block min-h-[500px]"
             />
             {/* Label overlay */}
-            <div style={{
-              position:"absolute", top:20, left:20,
-              background:"rgba(0,36,68,0.95)", backdropFilter:"blur(6px)",
-              borderRadius:"var(--radius-sm)", padding:"8px 16px",
-              color:"#fff", fontFamily:"var(--font-body)", fontSize:13, fontWeight:600,
-              display: "inline-flex", alignItems: "center", gap: 6,
-            }}>
+            <div className="absolute top-5 left-5 bg-[rgba(0,36,68,0.95)] backdrop-blur-[6px] rounded-[var(--radius-sm)] p-[8px_16px] text-white font-body text-[13px] font-semibold inline-flex items-center gap-[6px]">
               <Trophy size={16} weight="fill" color="var(--color-brand-gold)" /> House Special
             </div>
           </div>
 
           {/* Detail panel */}
-          <div className="reveal-right" style={{ background:"rgba(255,255,255,0.04)", backdropFilter:"blur(12px)", border:"1px solid rgba(255,255,255,0.07)", padding:"40px 36px" }}>
-            <span className="badge badge-amber" style={{ marginBottom:16, fontSize:11 }}>Pre-Order Only</span>
+          <div className="reveal-right bg-[rgba(255,255,255,0.04)] backdrop-blur-[12px] border border-[rgba(255,255,255,0.07)] p-[40px_36px]">
+            <span className="badge badge-amber mb-4 text-[11px]">Pre-Order Only</span>
 
-            <h3 style={{ fontFamily:"var(--font-display)", fontWeight:900, fontSize:"clamp(28px,3vw,40px)", color:"#fff", lineHeight:1.1, marginBottom:8, textTransform:"uppercase" }}>
-              Signature<br /><span style={{ color:"var(--color-brand-gold)", fontStyle:"italic" }}>Ofada Rice</span>
+            <h3 className="font-display font-black text-[clamp(28px,3vw,40px)] text-white leading-[1.1] mb-2 uppercase">
+              Signature<br /><span className="text-(--color-brand-gold) italic">Ofada Rice</span>
             </h3>
-            <p style={{ fontFamily:"var(--font-body)", fontSize:12, color:"rgba(255,255,255,0.4)", fontWeight:700, letterSpacing:"0.1em", textTransform:"uppercase", marginBottom:16 }}>
+            <p className="font-body text-[12px] text-white/40 font-bold tracking-[0.1em] uppercase mb-4">
               With Insides of Meat
             </p>
-            <p style={{ fontFamily:"var(--font-body)", fontSize:15, color:"rgba(255,255,255,0.65)", lineHeight:1.8, marginBottom:28 }}>
+            <p className="font-body text-[15px] text-white/65 leading-[1.8] mb-7">
               Our Signature Ofada Rice is served with a thick, slow-cooked Ayamase stew loaded with assorted meat insides. Bold, rich, and absolutely unforgettable.
             </p>
 
             {/* Price */}
-            <div style={{ marginBottom:28 }}>
+            <div className="mb-7">
               {/* Current total */}
-              <div style={{ display:"flex", alignItems:"baseline", gap:10, marginBottom:12 }}>
-                <span style={{ fontFamily:"var(--font-display)", fontWeight:900, fontSize:44, color:"var(--color-brand-gold)" }}>₦{total.toLocaleString()}</span>
-                <span style={{ fontFamily:"var(--font-body)", fontSize:13, color:"rgba(255,255,255,0.4)" }}>
+              <div className="flex items-baseline gap-[10px] mb-3">
+                <span className="font-display font-black text-[44px] text-(--color-brand-gold)">₦{total.toLocaleString()}</span>
+                <span className="font-body text-[13px] text-white/40">
                   {selected.length === 0 ? "base price" : `(${selected.length} add-on${selected.length > 1 ? "s" : ""})`}
                 </span>
               </div>
               {/* Price range indicator */}
-              <div style={{
-                display:"flex", alignItems:"center", justifyContent:"space-between",
-                background:"rgba(255,255,255,0.05)", borderRadius:"var(--radius-full)",
-                padding:"10px 16px", border:"1px solid rgba(255,255,255,0.08)",
-              }}>
-                <div style={{ textAlign:"center" }}>
-                  <div style={{ fontFamily:"var(--font-display)", fontWeight:900, fontSize:18, color:"var(--color-accent-lime)" }}>₦2,000</div>
-                  <div style={{ fontFamily:"var(--font-body)", fontSize:10, color:"rgba(255,255,255,0.4)", textTransform:"uppercase", letterSpacing:"0.08em", marginTop:2 }}>Base</div>
+              <div className="flex items-center justify-between bg-white/5 rounded-[var(--radius-full)] p-[10px_16px] border border-white/8">
+                <div className="text-center">
+                  <div className="font-display font-black text-[18px] text-(--color-accent-lime)">₦2,000</div>
+                  <div className="font-body text-[10px] text-white/40 uppercase tracking-[0.08em] mt-[2px]">Base</div>
                 </div>
-                <div style={{ flex:1, margin:"0 12px", height:2, background:"rgba(255,255,255,0.1)", borderRadius:2, position:"relative" }}>
-                  <div style={{
-                    position:"absolute", left:0, top:0, height:"100%", borderRadius:2,
-                    background:"linear-gradient(90deg, var(--color-accent-lime), var(--color-brand-gold))",
-                    width: `${((total - 2000) / 1500) * 100}%`,
-                    transition:"width 0.3s ease",
-                  }} />
+                <div className="flex-1 mx-3 h-[2px] bg-white/10 rounded-[2px] relative">
+                  <div className="absolute left-0 top-0 h-full rounded-[2px] bg-[linear-gradient(90deg,var(--color-accent-lime),var(--color-brand-gold))] transition-[width] duration-300"
+                    style={{ width: `${((total - 2000) / 1500) * 100}%` }}
+                  />
                 </div>
-                <div style={{ textAlign:"center" }}>
-                  <div style={{ fontFamily:"var(--font-display)", fontWeight:900, fontSize:18, color:"var(--color-brand-gold)" }}>₦3,500</div>
-                  <div style={{ fontFamily:"var(--font-body)", fontSize:10, color:"rgba(255,255,255,0.4)", textTransform:"uppercase", letterSpacing:"0.08em", marginTop:2 }}>Full Setup</div>
+                <div className="text-center">
+                  <div className="font-display font-black text-[18px] text-(--color-brand-gold)">₦3,500</div>
+                  <div className="font-body text-[10px] text-white/40 uppercase tracking-[0.08em] mt-[2px]">Full Setup</div>
                 </div>
               </div>
             </div>
 
             {/* Add-ons */}
-            <div style={{ marginBottom:28 }}>
-              <p style={{ fontFamily:"var(--font-body)", fontSize:11, fontWeight:700, letterSpacing:"0.12em", textTransform:"uppercase", color:"rgba(255,255,255,0.4)", marginBottom:12, paddingBottom:8, borderBottom:"1px solid rgba(255,255,255,0.08)" }}>
+            <div className="mb-7">
+              <p className="font-body text-[11px] font-bold tracking-[0.12em] uppercase text-white/40 mb-3 pb-2 border-b border-white/8">
                 Add-On Options
               </p>
-              <div style={{ display:"flex", gap:8, flexWrap:"wrap" }}>
+              <div className="flex gap-2 flex-wrap">
                 {addOns.map(addon => {
                   const active = selected.includes(addon.id);
                   const Icon = addon.icon;
                   return (
                     <button key={addon.id} id={`addon-${addon.id}`} onClick={()=>toggle(addon.id)} aria-pressed={active}
-                      style={{
-                        display:"flex", alignItems:"center", gap:6, padding:"8px 16px",
-                        borderRadius:"var(--radius-full)",
-                        border:`2px solid ${active?"var(--color-accent-lime)":"rgba(255,255,255,0.15)"}`,
-                        background: active?"var(--color-accent-lime)":"transparent",
-                        color: active?"var(--color-primary)":"rgba(255,255,255,0.7)",
-                        fontFamily:"var(--font-body)", fontSize:13, fontWeight:700,
-                        cursor:"pointer", transition:"all 0.2s ease",
-                        transform: active?"scale(1.05)":"scale(1)",
-                      }}>
+                      className={`flex items-center gap-[6px] p-[8px_16px] rounded-[var(--radius-full)] font-body text-[13px] font-bold cursor-pointer transition-all duration-200 ${active ? "bg-(--color-accent-lime) text-(--color-primary) border-2 border-(--color-accent-lime) scale-105" : "bg-transparent text-white/70 border-2 border-white/15 scale-100"}`}
+                    >
                       <Icon size={16} weight="fill" />
                       <span>{addon.label}</span>
-                      <span style={{ fontSize:11, opacity:0.7 }}>+₦{addon.price}</span>
+                      <span className="text-[11px] opacity-70">+₦{addon.price}</span>
                     </button>
                   );
                 })}
@@ -158,11 +129,11 @@ export default function MenuSection() {
             </div>
 
             {/* CTA */}
-            <a href={waLink()} target="_blank" rel="noopener noreferrer" id="menu-preorder-btn" className="btn-whatsapp" style={{ width:"100%", justifyContent:"center", fontSize:16, padding:"16px" }}>
+            <a href={waLink()} target="_blank" rel="noopener noreferrer" id="menu-preorder-btn" className="btn-whatsapp w-full justify-center text-[16px] p-[16px]">
               <WhatsappLogo size={22} weight="fill" />
               Pre-Order Now — ₦{total.toLocaleString()}
             </a>
-            <p style={{ fontFamily:"var(--font-body)", fontSize:12, color:"rgba(255,255,255,0.3)", textAlign:"center", marginTop:10 }}>
+            <p className="font-body text-[12px] text-white/30 text-center mt-[10px]">
               Secure your plate in advance · Ado Ekiti, Ekiti State
             </p>
           </div>
@@ -170,12 +141,11 @@ export default function MenuSection() {
       </div>
 
       {/* Wave */}
-      <div style={{ position:"absolute", bottom:-1, left:0, right:0, lineHeight:0, zIndex:2 }}>
-        <svg viewBox="0 0 1440 80" preserveAspectRatio="none" style={{ display:"block", width:"100%", height:80 }}>
+      <div className="absolute -bottom-px left-0 right-0 leading-[0] z-2">
+        <svg viewBox="0 0 1440 80" preserveAspectRatio="none" className="block w-full h-20">
           <path d="M0,60 C360,0 1080,80 1440,20 L1440,80 L0,80 Z" fill="var(--color-bg-lime)" />
         </svg>
       </div>
-      <style>{`@media(max-width:768px){ .menu-grid{grid-template-columns:1fr!important} }`}</style>
     </section>
   );
 }

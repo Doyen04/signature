@@ -26,76 +26,31 @@ export default function Navbar() {
 
   return (
     <header
-      style={{
-        position: "sticky",
-        top: 0,
-        zIndex: "var(--z-header)",
-        backgroundColor: "var(--color-primary)",
-        color: "var(--color-text-inverse)",
-        transition: "border-color 0.3s ease",
-        borderBottom: scrolled ? "1px solid rgba(255,255,255,0.1)" : "1px solid transparent",
-      }}
+      className={`sticky top-0 z-[var(--z-header)] bg-(--color-primary) text-(--color-text-inverse) transition-[border-color] duration-300 ${scrolled ? "border-b border-white/10" : "border-b border-transparent"}`}
       aria-label="Main navigation"
     >
       <div
-        className="container"
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-          paddingTop: 18,
-          paddingBottom: 18,
-        }}
+        className="container flex items-center justify-between py-[18px]"
       >
         {/* Logo */}
         <Link
           href="#home"
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: "10px",
-            textDecoration: "none",
-            color: "inherit",
-          }}
+          className="flex items-center gap-[10px] no-underline text-inherit"
           aria-label="Venant Cutlery home"
         >
           <div
-            style={{
-              width: 40,
-              height: 40,
-              borderRadius: "50%",
-              backgroundColor: "var(--color-brand-gold)",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              color: "var(--color-primary)",
-              flexShrink: 0,
-            }}
+            className="w-10 h-10 rounded-full bg-(--color-brand-gold) flex items-center justify-center text-(--color-primary) flex-shrink-0"
           >
             <CookingPot size={22} weight="fill" />
           </div>
           <div>
             <div
-              style={{
-                fontFamily: "var(--font-display)",
-                fontWeight: 700,
-                fontSize: 18,
-                lineHeight: 1,
-                color: "#fff",
-                letterSpacing: "-0.01em",
-              }}
+              className="font-display font-bold text-[18px] leading-none text-white tracking-[-0.01em]"
             >
               Venant
             </div>
             <div
-              style={{
-                fontFamily: "var(--font-body)",
-                fontSize: 11,
-                letterSpacing: "0.18em",
-                textTransform: "uppercase",
-                color: "var(--color-brand-gold)",
-                lineHeight: 1,
-              }}
+              className="font-body text-[11px] tracking-[0.18em] uppercase text-(--color-brand-gold) leading-none"
             >
               Cutlery
             </div>
@@ -105,34 +60,13 @@ export default function Navbar() {
         {/* Desktop Nav */}
         <nav
           aria-label="Site links"
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: 4,
-          }}
-          className="desktop-nav"
+          className="desktop-nav hidden md:flex items-center gap-1"
         >
           {navLinks.map((link) => (
             <Link
               key={link.label}
               href={link.href}
-              style={{
-                color: "#fff",
-                fontFamily: "var(--font-body)",
-                fontSize: 14,
-                fontWeight: 500,
-                padding: "8px 14px",
-                borderRadius: "var(--radius-sm)",
-                transition: "background-color 0.2s ease, color 0.2s ease",
-                textDecoration: "none",
-              }}
-              onMouseEnter={(e) => {
-                (e.target as HTMLElement).style.backgroundColor =
-                  "var(--color-primary-hover)";
-              }}
-              onMouseLeave={(e) => {
-                (e.target as HTMLElement).style.backgroundColor = "transparent";
-              }}
+              className="text-white font-body text-[14px] font-medium p-[8px_14px] rounded-[var(--radius-sm)] transition-colors duration-200 no-underline hover:bg-(--color-primary-hover)"
             >
               {link.label}
             </Link>
@@ -144,15 +78,7 @@ export default function Navbar() {
           href={WA_LINK}
           target="_blank"
           rel="noopener noreferrer"
-          className="btn-primary desktop-cta"
-          style={{
-            backgroundColor: "var(--color-brand-gold)",
-            borderColor: "var(--color-brand-gold)",
-            color: "var(--color-primary)",
-            fontWeight: 700,
-            fontSize: 14,
-            padding: "10px 20px",
-          }}
+          className="btn-primary desktop-cta hidden md:inline-flex bg-(--color-brand-gold) border-(--color-brand-gold) text-(--color-primary) font-bold text-[14px] p-[10px_20px]"
         >
           <ShoppingBagOpen size={18} weight="bold" /> Pre-Order Now
         </a>
@@ -163,54 +89,16 @@ export default function Navbar() {
           onClick={() => setMenuOpen(!menuOpen)}
           aria-expanded={menuOpen}
           aria-label="Toggle navigation menu"
-          className="hamburger-btn"
-          style={{
-            display: "none",
-            background: "transparent",
-            border: "none",
-            cursor: "pointer",
-            padding: 8,
-            color: "#fff",
-            flexDirection: "column",
-            gap: 5,
-          }}
+          className="hamburger-btn flex md:hidden flex-col gap-[5px] bg-transparent border-none cursor-pointer p-2 text-white"
         >
           <span
-            style={{
-              display: "block",
-              width: 24,
-              height: 2,
-              background: "#fff",
-              borderRadius: 2,
-              transition: "transform 0.3s ease, opacity 0.3s ease",
-              transform: menuOpen
-                ? "translateY(7px) rotate(45deg)"
-                : "none",
-            }}
+            className={`block w-6 h-[2px] bg-white rounded-[2px] transition-[transform,opacity] duration-300 ${menuOpen ? "translate-y-[7px] rotate-45" : ""}`}
           />
           <span
-            style={{
-              display: "block",
-              width: 24,
-              height: 2,
-              background: "#fff",
-              borderRadius: 2,
-              transition: "opacity 0.3s ease",
-              opacity: menuOpen ? 0 : 1,
-            }}
+            className={`block w-6 h-[2px] bg-white rounded-[2px] transition-opacity duration-300 ${menuOpen ? "opacity-0" : "opacity-100"}`}
           />
           <span
-            style={{
-              display: "block",
-              width: 24,
-              height: 2,
-              background: "#fff",
-              borderRadius: 2,
-              transition: "transform 0.3s ease, opacity 0.3s ease",
-              transform: menuOpen
-                ? "translateY(-7px) rotate(-45deg)"
-                : "none",
-            }}
+            className={`block w-6 h-[2px] bg-white rounded-[2px] transition-[transform,opacity] duration-300 ${menuOpen ? "-translate-y-[7px] -rotate-45" : ""}`}
           />
         </button>
       </div>
@@ -219,37 +107,14 @@ export default function Navbar() {
       <div
         id="mobile-menu"
         aria-hidden={!menuOpen}
-        style={{
-          display: menuOpen ? "flex" : "none",
-          flexDirection: "column",
-          padding: "16px 24px 24px",
-          borderTop: "1px solid rgba(255,255,255,0.1)",
-          gap: 4,
-          backgroundColor: "var(--color-primary)",
-        }}
+        className={`${menuOpen ? "flex" : "hidden"} flex-col p-[16px_24px_24px] border-t border-white/10 gap-1 bg-(--color-primary)`}
       >
         {navLinks.map((link) => (
           <Link
             key={link.label}
             href={link.href}
             onClick={() => setMenuOpen(false)}
-            style={{
-              color: "#fff",
-              fontFamily: "var(--font-body)",
-              fontSize: 15,
-              fontWeight: 500,
-              padding: "12px 16px",
-              borderRadius: "var(--radius-sm)",
-              textDecoration: "none",
-              transition: "background-color 0.2s ease",
-            }}
-            onMouseEnter={(e) => {
-              (e.target as HTMLElement).style.backgroundColor =
-                "rgba(255,255,255,0.1)";
-            }}
-            onMouseLeave={(e) => {
-              (e.target as HTMLElement).style.backgroundColor = "transparent";
-            }}
+            className="text-white font-body text-[15px] font-medium p-[12px_16px] rounded-[var(--radius-sm)] no-underline transition-colors duration-200 hover:bg-white/10"
           >
             {link.label}
           </Link>
@@ -258,27 +123,11 @@ export default function Navbar() {
           href={WA_LINK}
           target="_blank"
           rel="noopener noreferrer"
-          className="btn-primary"
-          style={{
-            marginTop: 8,
-            backgroundColor: "var(--color-brand-gold)",
-            borderColor: "var(--color-brand-gold)",
-            color: "var(--color-primary)",
-            fontWeight: 700,
-            justifyContent: "center",
-          }}
+          className="btn-primary mt-2 bg-(--color-brand-gold) border-(--color-brand-gold) text-(--color-primary) font-bold justify-center"
         >
           <ShoppingBagOpen size={18} weight="bold" /> Pre-Order Now
         </a>
       </div>
-
-      <style>{`
-        @media (max-width: 768px) {
-          .desktop-nav  { display: none !important; }
-          .desktop-cta  { display: none !important; }
-          .hamburger-btn { display: flex !important; }
-        }
-      `}</style>
     </header>
   );
 }

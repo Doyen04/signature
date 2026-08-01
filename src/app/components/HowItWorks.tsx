@@ -20,81 +20,62 @@ export default function HowItWorks() {
   }, []);
 
   return (
-    <section id="how-it-works" ref={ref} style={{ background:"var(--color-bg-lime)", position:"relative", overflow:"hidden" }} aria-label="How pre-ordering works">
+    <section id="how-it-works" ref={ref} className="bg-(--color-bg-lime) relative overflow-hidden" aria-label="How pre-ordering works">
 
-      <div className="container section" style={{ position:"relative", zIndex:1 }}>
+      <div className="container section relative z-1">
 
         {/* Header */}
-        <div className="reveal" style={{ textAlign:"center", marginBottom:72 }}>
-          <p style={{ fontFamily:"var(--font-body)", fontSize:14, fontWeight:700, letterSpacing:"0.15em", textTransform:"uppercase", color:"rgba(0,36,68,0.55)", marginBottom:12 }}>Simple Process</p>
-          <h2 style={{
-            fontFamily:"var(--font-display)",
-            fontWeight:900,
-            fontSize:"clamp(48px, 9vw, 104px)",
-            color:"var(--color-primary)",
-            lineHeight:0.95,
-            textTransform:"uppercase",
-            letterSpacing:"-0.02em",
-          }}>
-            <span style={{ display:"block" }}>HOW TO</span>
-            <span style={{ display:"block", fontStyle:"italic" }}>Pre-Order</span>
+        <div className="reveal text-center mb-18">
+          <p className="font-body text-[14px] font-bold tracking-[0.15em] uppercase text-[rgba(0,36,68,0.55)] mb-3">Simple Process</p>
+          <h2 className="font-display font-black text-[clamp(48px,9vw,104px)] text-(--color-primary) leading-[0.95] uppercase tracking-[-0.02em]">
+            <span className="block">HOW TO</span>
+            <span className="block italic">Pre-Order</span>
           </h2>
-          <p style={{ fontFamily:"var(--font-body)", fontSize:17, color:"rgba(0,36,68,0.7)", maxWidth:480, margin:"20px auto 0", lineHeight:1.7 }}>
+          <p className="font-body text-[17px] text-[rgba(0,36,68,0.7)] max-w-[480px] mx-auto mt-5 leading-[1.7]">
             Securing your plate is easy and takes less than a minute.
           </p>
         </div>
 
         {/* Step cards — flat, no shadow */}
-        <div style={{ display:"grid", gridTemplateColumns:"repeat(3,1fr)", gap:20 }} className="steps-grid">
+        <div className="steps-grid grid grid-cols-1 md:grid-cols-3 gap-5">
           {steps.map((step, i) => {
             const Icon = step.icon;
             return (
               <div key={step.number}
-                className={`reveal delay-${(i+1)*100}`}
-                style={{
-                  background: step.bg,
-                  borderRadius:"var(--radius-lg)",
-                  padding:"36px 28px",
-                  position:"relative",
-                  overflow:"hidden",
-                  transition:"transform 0.25s ease",
-                  cursor:"default",
-                }}
-                onMouseEnter={e => { (e.currentTarget as HTMLElement).style.transform="translateY(-8px)"; }}
-                onMouseLeave={e => { (e.currentTarget as HTMLElement).style.transform="none"; }}
+                className={`reveal delay-${(i+1)*100} rounded-[var(--radius-lg)] p-[36px_28px] relative overflow-hidden transition-transform duration-250 cursor-default hover:-translate-y-2!`}
+                style={{ background: step.bg }}
               >
                 {/* Ghost step number */}
-                <div style={{ position:"absolute", top:12, right:16, fontFamily:"var(--font-display)", fontWeight:900, fontSize:72, lineHeight:1, opacity:0.1, color:step.text, userSelect:"none" }}>
+                <div className="absolute top-3 right-4 font-display font-black text-[72px] leading-[1] opacity-10 select-none" style={{ color: step.text }}>
                   {step.number}
                 </div>
                 {/* Icon circle */}
-                <div style={{ width:60, height:60, borderRadius:"50%", background:step.accent, display:"flex", alignItems:"center", justifyContent:"center", color: step.text, marginBottom:20 }}>
+                <div className="w-15 h-15 rounded-full flex items-center justify-center mb-5" style={{ background: step.accent, color: step.text }}>
                   <Icon size={30} weight="fill" />
                 </div>
-                <h3 style={{ fontFamily:"var(--font-display)", fontWeight:700, fontSize:22, color:step.text, marginBottom:12, lineHeight:1.2 }}>{step.title}</h3>
-                <p style={{ fontFamily:"var(--font-body)", fontSize:15, color: i===0?"rgba(255,255,255,0.7)": i===1?"rgba(255,255,255,0.8)":"rgba(0,36,68,0.7)", lineHeight:1.7 }}>{step.desc}</p>
+                <h3 className="font-display font-bold text-[22px] mb-3 leading-[1.2]" style={{ color: step.text }}>{step.title}</h3>
+                <p className="font-body text-[15px] leading-[1.7]" style={{ color: i===0?"rgba(255,255,255,0.7)": i===1?"rgba(255,255,255,0.8)":"rgba(0,36,68,0.7)" }}>{step.desc}</p>
               </div>
             );
           })}
         </div>
 
         {/* Location note */}
-        <div className="reveal" style={{ textAlign:"center", marginTop:48, padding:"20px 24px", background:"rgba(0,36,68,0.08)", borderRadius:"var(--radius-md)", border:"1px dashed rgba(0,36,68,0.2)", display:"inline-block", width:"100%" }}>
-          <p style={{ fontFamily:"var(--font-body)", fontSize:15, color:"rgba(0,36,68,0.7)", display: "inline-flex", alignItems: "center", gap: 8, flexWrap: "wrap", justifyContent: "center" }}>
-            <MapPin size={18} weight="fill" style={{ color: "var(--color-primary)" }} /> <strong style={{ color:"var(--color-primary)" }}>Ado Ekiti, Ekiti State</strong> &nbsp;·&nbsp;
-            <WhatsappLogo size={18} weight="fill" style={{ color: "#25D366" }} />{" "}
-            <a href="https://wa.me/2349131166934" target="_blank" rel="noopener noreferrer" style={{ color:"#25D366", fontWeight:700 }}>+234 913 116 6934</a>
+        <div className="reveal text-center mt-12 p-[20px_24px] bg-[rgba(0,36,68,0.08)] rounded-[var(--radius-md)] border border-dashed border-[rgba(0,36,68,0.2)] inline-block w-full">
+          <p className="font-body text-[15px] text-[rgba(0,36,68,0.7)] inline-flex items-center gap-2 flex-wrap justify-center">
+            <MapPin size={18} weight="fill" className="text-(--color-primary)" /> <strong className="text-(--color-primary)">Ado Ekiti, Ekiti State</strong> &nbsp;·&nbsp;
+            <WhatsappLogo size={18} weight="fill" className="text-[#25D366]" />{" "}
+            <a href="https://wa.me/2349131166934" target="_blank" rel="noopener noreferrer" className="text-[#25D366] font-bold">+234 913 116 6934</a>
           </p>
         </div>
       </div>
 
       {/* Wave */}
-      <div style={{ position:"absolute", bottom:-1, left:0, right:0, lineHeight:0, zIndex:2 }}>
-        <svg viewBox="0 0 1440 80" preserveAspectRatio="none" style={{ display:"block", width:"100%", height:80 }}>
+      <div className="absolute -bottom-px left-0 right-0 leading-[0] z-2">
+        <svg viewBox="0 0 1440 80" preserveAspectRatio="none" className="block w-full h-20">
           <path d="M0,20 C480,80 960,0 1440,50 L1440,80 L0,80 Z" fill="var(--color-primary)" />
         </svg>
       </div>
-      <style>{`@media(max-width:768px){ .steps-grid{grid-template-columns:1fr!important} }`}</style>
     </section>
   );
 }

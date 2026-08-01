@@ -32,14 +32,11 @@ const testimonials = [
 
 function StarRating({ count }: { count: number }) {
   return (
-    <div style={{ display: "flex", gap: 4 }}>
+    <div className="flex gap-1">
       {Array.from({ length: count }).map((_, i) => (
         <span
           key={i}
-          style={{
-            color: "var(--color-brand-gold)",
-            fontSize: 16,
-          }}
+          className="text-(--color-brand-gold) text-[16px]"
         >
           ★
         </span>
@@ -72,127 +69,59 @@ export default function Testimonials() {
     <section
       id="testimonials"
       ref={ref}
-      style={{
-        background: "var(--color-primary)",
-        position: "relative",
-        overflow: "hidden",
-      }}
+      className="bg-(--color-primary) relative overflow-hidden"
       aria-label="Customer testimonials"
     >
-      <div className="container section" style={{ position: "relative", zIndex: 1 }}>
+      <div className="container section relative z-1">
         {/* Header */}
-        <div className="reveal" style={{ textAlign: "center", marginBottom: 64 }}>
+        <div className="reveal text-center mb-16">
           <h2
-            style={{
-              fontFamily: "var(--font-display)",
-              fontWeight: 900,
-              fontSize: "clamp(48px, 9vw, 104px)",
-              color: "#fff",
-              lineHeight: 0.95,
-              textTransform: "uppercase",
-              letterSpacing: "-0.02em",
-            }}
+            className="font-display font-black text-[clamp(48px,9vw,104px)] text-white leading-[0.95] uppercase tracking-[-0.02em]"
           >
-            <span style={{ display: "block" }}>PEOPLE</span>
-            <span style={{ display: "block", color: "var(--color-brand-gold)", fontStyle: "italic" }}>
+            <span className="block">PEOPLE</span>
+            <span className="block text-(--color-brand-gold) italic">
               Love
             </span>
-            <span style={{ display: "block" }}>OUR FOOD</span>
+            <span className="block">OUR FOOD</span>
           </h2>
         </div>
 
         {/* Grid — flat, no shadow */}
         <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(2, 1fr)",
-            gap: 24,
-          }}
-          className="testimonials-grid"
+          className="testimonials-grid grid grid-cols-1 md:grid-cols-2 gap-6"
         >
           {testimonials.map((t, i) => (
             <div
               key={t.name}
-              className={`reveal delay-${(i + 1) * 100}`}
-              style={{
-                background: "rgba(255,255,255,0.05)",
-                backdropFilter: "blur(12px)",
-                border: "1px solid rgba(255,255,255,0.08)",
-                borderRadius: "var(--radius-lg)",
-                padding: "32px",
-                transition: "transform 0.25s ease, background 0.25s ease",
-                cursor: "default",
-              }}
-              onMouseEnter={(e) => {
-                (e.currentTarget as HTMLElement).style.transform = "translateY(-6px)";
-                (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.08)";
-              }}
-              onMouseLeave={(e) => {
-                (e.currentTarget as HTMLElement).style.transform = "none";
-                (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.05)";
-              }}
+              className={`reveal delay-${(i + 1) * 100} bg-white/5 backdrop-blur-[12px] border border-white/8 rounded-[var(--radius-lg)] p-8 transition-[transform,background] duration-250 cursor-default hover:-translate-y-1.5! hover:bg-white/8`}
             >
               <div
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: 14,
-                  marginBottom: 16,
-                }}
+                className="flex items-center gap-[14px] mb-4"
               >
                 <div
-                  style={{
-                    width: 48,
-                    height: 48,
-                    borderRadius: "50%",
-                    background: "rgba(244,167,0,0.15)",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    color: "var(--color-brand-gold)",
-                    flexShrink: 0,
-                    border: "2px solid rgba(244,167,0,0.3)",
-                  }}
+                  className="w-12 h-12 rounded-full bg-[rgba(244,167,0,0.15)] flex items-center justify-center text-(--color-brand-gold) flex-shrink-0 border-2 border-[rgba(244,167,0,0.3)]"
                 >
                   <User size={24} weight="fill" />
                 </div>
                 <div>
                   <p
-                    style={{
-                      fontFamily: "var(--font-body)",
-                      fontWeight: 700,
-                      fontSize: 16,
-                      color: "#fff",
-                    }}
+                    className="font-body font-bold text-[16px] text-white"
                   >
                     {t.name}
                   </p>
                   <p
-                    style={{
-                      fontFamily: "var(--font-body)",
-                      fontSize: 12,
-                      color: "rgba(255,255,255,0.5)",
-                      display: "flex",
-                      alignItems: "center",
-                      gap: 4,
-                    }}
+                    className="font-body text-[12px] text-white/50 flex items-center gap-1"
                   >
                     <MapPin size={14} weight="fill" /> {t.location}
                   </p>
                 </div>
-                <div style={{ marginLeft: "auto" }}>
+                <div className="ml-auto">
                   <StarRating count={t.rating} />
                 </div>
               </div>
 
               <p
-                style={{
-                  fontFamily: "var(--font-body)",
-                  fontSize: 15,
-                  color: "rgba(255,255,255,0.8)",
-                  lineHeight: 1.7,
-                  fontStyle: "italic",
-                }}
+                className="font-body text-[15px] text-white/80 leading-[1.7] italic"
               >
                 &ldquo;{t.text}&rdquo;
               </p>
@@ -202,13 +131,11 @@ export default function Testimonials() {
       </div>
 
       {/* Wave divider */}
-      <div style={{ position: "absolute", bottom: -1, left: 0, right: 0, lineHeight: 0, zIndex: 2 }}>
-        <svg viewBox="0 0 1440 80" preserveAspectRatio="none" style={{ display: "block", width: "100%", height: 80 }}>
+      <div className="absolute -bottom-px left-0 right-0 leading-[0] z-2">
+        <svg viewBox="0 0 1440 80" preserveAspectRatio="none" className="block w-full h-20">
           <path d="M0,0 C480,80 960,0 1440,40 L1440,80 L0,80 Z" fill="var(--color-bg-lime)" />
         </svg>
       </div>
-
-      <style>{`@media(max-width:768px){ .testimonials-grid{grid-template-columns:1fr!important} }`}</style>
     </section>
   );
 }
