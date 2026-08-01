@@ -25,6 +25,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://venantcutlery.com"), // Update to your production domain when deployed
   title: "Venant Cutlery — Signature Ofada Rice | Ado Ekiti",
   description:
     "Experience Venant Cutlery's Signature Ofada Rice with Insides of Meat. Rich, spicy, and unforgettable. Pre-order now in Ado Ekiti, Ekiti State.",
@@ -39,10 +40,26 @@ export const metadata: Metadata = {
     "Ayamase stew",
   ],
   openGraph: {
-    title: "Venant Cutlery — Signature Ofada Rice",
-    description: "Good Food. Great Taste. Worth the Wait! Pre-order our Signature Ofada Rice today.",
-    type: "website",
+    title: "Venant Cutlery — Signature Ofada Rice | Ado Ekiti",
+    description: "Good Food. Great Taste. Worth the Wait! Pre-order our Signature Ofada Rice with Insides of Meat today.",
+    url: "https://venantcutlery.com",
+    siteName: "Venant Cutlery",
+    images: [
+      {
+        url: "/ofada-hero.png",
+        width: 1200,
+        height: 630,
+        alt: "Venant Cutlery Signature Ofada Rice",
+      },
+    ],
     locale: "en_NG",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Venant Cutlery — Signature Ofada Rice | Ado Ekiti",
+    description: "Good Food. Great Taste. Worth the Wait! Pre-order our Signature Ofada Rice with Insides of Meat today.",
+    images: ["/ofada-hero.png"],
   },
 };
 
