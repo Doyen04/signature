@@ -25,7 +25,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://venantcutlery.com"), // Update to your production domain when deployed
+  metadataBase: new URL("https://venant-cusine.vercel.app"),
   title: "Venant Cutlery — Signature Ofada Rice | Ado Ekiti",
   description:
     "Experience Venant Cutlery's Signature Ofada Rice with Insides of Meat. Rich, spicy, and unforgettable. Pre-order now in Ado Ekiti, Ekiti State.",
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Venant Cutlery — Signature Ofada Rice | Ado Ekiti",
     description: "Good Food. Great Taste. Worth the Wait! Pre-order our Signature Ofada Rice with Insides of Meat today.",
-    url: "https://venantcutlery.com",
+    url: "https://venant-cusine.vercel.app",
     siteName: "Venant Cutlery",
     images: [
       {
