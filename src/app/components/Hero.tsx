@@ -44,7 +44,7 @@ export default function Hero() {
       <div className="animate-spin-slow" style={{ position:"absolute", top:40, right:40, width:120, height:120, borderRadius:"50%", border:"3px dashed rgba(255,255,255,0.12)", pointerEvents:"none", zIndex:0 }} />
       <div className="animate-spin-slow" style={{ position:"absolute", bottom:120, left:40, width:80, height:80, borderRadius:"50%", border:"2px dashed rgba(247,216,0,0.2)", pointerEvents:"none", zIndex:0, animationDirection:"reverse" }} />
 
-      <div className="container" style={{ position:"relative", zIndex:1, padding:"0 40px" }}>
+      <div className="container" style={{ position:"relative", zIndex:1 }}>
         <div style={{
           display: "grid",
           gridTemplateColumns: "1fr 1fr",

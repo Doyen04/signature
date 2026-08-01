@@ -89,13 +89,20 @@ body {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 48px;
+  padding-left: 64px !important;
+  padding-right: 64px !important;
 }
 @media (max-width: 768px) {
-  .container { padding: 0 24px; }
+  .container {
+    padding-left: 40px !important;
+    padding-right: 40px !important;
+  }
 }
 @media (max-width: 480px) {
-  .container { padding: 0 20px; }
+  .container {
+    padding-left: 32px !important;
+    padding-right: 32px !important;
+  }
 }
 .section    { padding: 96px 0; }
 .section-sm { padding: 64px 0; }
