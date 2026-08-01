@@ -25,7 +25,7 @@ export default function Hero() {
       aria-label="Hero — Signature Ofada Rice"
     >
       {/* Subtle grid pattern overlay */}
-      <div className="absolute inset-0 z-0 pointer-events-none [background-image:radial-gradient(rgba(255,255,255,0.04)_1px,transparent_1px)] [background-size:32px_32px]" />
+      <div className="absolute inset-0 z-0 pointer-events-none bg-[radial-gradient(rgba(255,255,255,0.04)_1px,transparent_1px)] bg-size-[32px_32px]" />
 
       {/* Spinning dashed ring */}
       <div className="animate-spin-slow absolute top-10 right-10 w-30 h-30 rounded-full border-[3px] border-dashed border-white/12 pointer-events-none z-0" />
@@ -46,7 +46,7 @@ export default function Hero() {
             </h1>
 
             {/* Subtext */}
-            <p className="hero-anim font-body text-[clamp(15px,1.6vw,19px)] text-white/70 max-w-[500px] mb-5 leading-[1.6]">
+            <p className="hero-anim font-body text-[clamp(15px,1.6vw,19px)] text-white/70 max-w-125 mb-5 leading-[1.6]">
               With Insides of Meat. A rich, spicy, and unforgettable experience made{" "}
               <strong className="text-white">just for you</strong>.
               Good food. Great taste.{" "}
@@ -58,7 +58,7 @@ export default function Hero() {
               <span className="font-display font-black text-[clamp(32px,4.5vw,52px)] text-(--color-brand-gold)">
                 ₦3,500
               </span>
-              <span className="font-body text-[14px] text-white/50 ml-3 uppercase tracking-[0.1em]">
+              <span className="font-body text-sm text-white/50 ml-3 uppercase tracking-widest">
                 · Pre-Order Only
               </span>
             </div>
@@ -70,12 +70,12 @@ export default function Hero() {
                 target="_blank"
                 rel="noopener noreferrer"
                 id="hero-preorder-btn"
-                className="btn-whatsapp text-[17px] px-10 py-[18px]"
+                className="btn-whatsapp text-[17px] px-10 py-4.5"
               >
                 <WhatsappLogo size={24} weight="fill" />
                 Pre-Order on WhatsApp
               </a>
-              <a href="#menu" className="btn-dark text-[17px] px-9 py-[18px]">
+              <a href="#menu" className="btn-dark text-[17px] px-9 py-4.5">
                 View Menu <ArrowRight size={20} weight="bold" />
               </a>
             </div>
@@ -105,7 +105,7 @@ export default function Hero() {
               ].map((item) => {
                 const Icon = item.icon;
                 return (
-                  <span key={item.label} className="text-white/85 font-body text-[13px] font-semibold inline-flex items-center gap-[6px]">
+                  <span key={item.label} className="text-white/85 font-body text-[13px] font-semibold inline-flex items-center gap-1.5">
                     <Icon size={16} weight="fill" color="var(--color-brand-gold)" /> {item.label}
                   </span>
                 );
@@ -117,7 +117,7 @@ export default function Hero() {
       </div>
 
       {/* Wave bottom divider */}
-      <div className="absolute -bottom-px left-0 right-0 leading-[0] z-2">
+      <div className="absolute -bottom-px left-0 right-0 leading-0 z-2">
         <svg viewBox="0 0 1440 80" preserveAspectRatio="none" className="block w-full h-20">
           <path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="#f0ece3" />
         </svg>

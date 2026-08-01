@@ -46,7 +46,7 @@ export default function Footer() {
               className="flex items-center gap-2.5 mb-4"
             >
               <div
-                className="w-11 h-11 rounded-full bg-(--color-brand-gold) flex items-center justify-center text-(--color-primary) flex-shrink-0"
+                className="w-11 h-11 rounded-full bg-(--color-brand-gold) flex items-center justify-center text-(--color-primary) shrink-0"
               >
                 <CookingPot size={24} weight="fill" />
               </div>
@@ -65,7 +65,7 @@ export default function Footer() {
             </div>
 
             <p
-              className="font-body text-[14px] text-white/60 leading-[1.8] mb-5 max-w-[260px]"
+              className="font-body text-[14px] text-white/60 leading-[1.8] mb-5 max-w-65"
             >
               Serving authentic Nigerian cuisine with passion. Our Signature
               Ofada Rice is a rich, spicy, unforgettable experience made just
@@ -76,10 +76,10 @@ export default function Footer() {
             <div
               className="flex items-start gap-2 mb-3"
             >
-              <MapPin size={18} weight="fill" className="text-(--color-brand-gold) mt-[2px]" />
+              <MapPin size={18} weight="fill" className="text-(--color-brand-gold) mt-0.5" />
               <div>
                 <p
-                  className="font-body text-[12px] text-white/40 uppercase tracking-[0.08em] mb-[2px]"
+                  className="font-body text-xs text-white/40 uppercase tracking-[0.08em] mb-0.5"
                 >
                   Location
                 </p>
@@ -93,10 +93,10 @@ export default function Footer() {
 
             {/* WhatsApp */}
             <div className="flex items-start gap-2">
-              <WhatsappLogo size={18} weight="fill" className="text-[#25D366] mt-[2px]" />
+              <WhatsappLogo size={18} weight="fill" className="text-[#25D366] mt-0.5" />
               <div>
                 <p
-                  className="font-body text-[12px] text-white/40 uppercase tracking-[0.08em] mb-[2px]"
+                  className="font-body text-xs text-white/40 uppercase tracking-[0.08em] mb-0.5"
                 >
                   WhatsApp
                 </p>
@@ -104,7 +104,7 @@ export default function Footer() {
                   href={WA_LINK}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-body text-[14px] text-[#25D366] font-bold no-underline"
+                  className="font-body text-sm text-[#25D366] font-bold no-underline"
                 >
                   +234 913 116 6934
                 </a>
@@ -116,7 +116,7 @@ export default function Footer() {
           {footerLinks.map((col) => (
             <div key={col.heading}>
               <h3
-                className="font-body text-[12px] font-bold uppercase tracking-[0.12em] text-white/40 mb-5"
+                className="font-body text-xs font-bold uppercase tracking-[0.12em] text-white/40 mb-5"
               >
                 {col.heading}
               </h3>
@@ -154,7 +154,7 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               id="footer-preorder-btn"
-              className="btn-whatsapp text-[14px] p-[12px_20px] inline-flex gap-[6px]"
+              className="btn-whatsapp text-sm py-3 px-5 inline-flex gap-1.5"
             >
               <WhatsappLogo size={18} weight="fill" /> Pre-Order Now
             </a>
@@ -171,7 +171,7 @@ export default function Footer() {
             © {year} Venant Cutlery. All rights reserved. · Ado Ekiti, Ekiti State, Nigeria.
           </p>
           <p
-            className="font-body text-[12px] text-white/25 flex items-center gap-[6px]"
+            className="font-body text-xs text-white/25 flex items-center gap-1.5"
           >
             <span>Designed &amp; Built by</span>
             <a

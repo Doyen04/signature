@@ -36,7 +36,7 @@ function StarRating({ count }: { count: number }) {
       {Array.from({ length: count }).map((_, i) => (
         <span
           key={i}
-          className="text-(--color-brand-gold) text-[16px]"
+          className="text-(--color-brand-gold) text-base"
         >
           ★
         </span>
@@ -93,24 +93,24 @@ export default function Testimonials() {
           {testimonials.map((t, i) => (
             <div
               key={t.name}
-              className={`reveal delay-${(i + 1) * 100} bg-white/5 backdrop-blur-[12px] border border-white/8 rounded-[var(--radius-lg)] p-8 transition-[transform,background] duration-250 cursor-default hover:-translate-y-1.5! hover:bg-white/8`}
+              className={`reveal delay-${(i + 1) * 100} bg-white/5 backdrop-blur-md border border-white/8 rounded-lg p-8 transition-[transform,background] duration-250 cursor-default hover:-translate-y-1.5! hover:bg-white/8`}
             >
               <div
-                className="flex items-center gap-[14px] mb-4"
+                className="flex items-center gap-3.5 mb-4"
               >
                 <div
-                  className="w-12 h-12 rounded-full bg-[rgba(244,167,0,0.15)] flex items-center justify-center text-(--color-brand-gold) flex-shrink-0 border-2 border-[rgba(244,167,0,0.3)]"
+                  className="w-12 h-12 rounded-full bg-[rgba(244,167,0,0.15)] flex items-center justify-center text-(--color-brand-gold) shrink-0 border-2 border-[rgba(244,167,0,0.3)]"
                 >
                   <User size={24} weight="fill" />
                 </div>
                 <div>
                   <p
-                    className="font-body font-bold text-[16px] text-white"
+                    className="font-body font-bold text-base text-white"
                   >
                     {t.name}
                   </p>
                   <p
-                    className="font-body text-[12px] text-white/50 flex items-center gap-1"
+                    className="font-body text-xs text-white/50 flex items-center gap-1"
                   >
                     <MapPin size={14} weight="fill" /> {t.location}
                   </p>
@@ -131,7 +131,7 @@ export default function Testimonials() {
       </div>
 
       {/* Wave divider */}
-      <div className="absolute -bottom-px left-0 right-0 leading-[0] z-2">
+      <div className="absolute -bottom-px left-0 right-0 leading-0 z-2">
         <svg viewBox="0 0 1440 80" preserveAspectRatio="none" className="block w-full h-20">
           <path d="M0,0 C480,80 960,0 1440,40 L1440,80 L0,80 Z" fill="var(--color-bg-lime)" />
         </svg>

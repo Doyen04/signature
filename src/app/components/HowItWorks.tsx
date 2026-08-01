@@ -26,7 +26,7 @@ export default function HowItWorks() {
 
         {/* Header */}
         <div className="reveal text-center mb-18">
-          <p className="font-body text-[14px] font-bold tracking-[0.15em] uppercase text-[rgba(0,36,68,0.55)] mb-3">Simple Process</p>
+          <p className="font-body text-sm font-bold tracking-[0.15em] uppercase text-[rgba(0,36,68,0.55)] mb-3">Simple Process</p>
           <h2 className="font-display font-black text-[clamp(48px,9vw,104px)] text-(--color-primary) leading-[0.95] uppercase tracking-[-0.02em]">
             <span className="block">HOW TO</span>
             <span className="block italic">Pre-Order</span>
@@ -42,7 +42,7 @@ export default function HowItWorks() {
             const Icon = step.icon;
             return (
               <div key={step.number}
-                className={`reveal delay-${(i+1)*100} rounded-[var(--radius-lg)] p-[36px_28px] relative overflow-hidden transition-transform duration-250 cursor-default hover:-translate-y-2!`}
+                className={`reveal delay-${(i+1)*100} rounded-[var(--radius-lg)] py-9 px-7 relative overflow-hidden transition-transform duration-250 cursor-default hover:-translate-y-2!`}
                 style={{ background: step.bg }}
               >
                 {/* Ghost step number */}
@@ -61,7 +61,7 @@ export default function HowItWorks() {
         </div>
 
         {/* Location note */}
-        <div className="reveal text-center mt-12 p-[20px_24px] bg-[rgba(0,36,68,0.08)] rounded-[var(--radius-md)] border border-dashed border-[rgba(0,36,68,0.2)] inline-block w-full">
+        <div className="reveal text-center mt-12 py-5 px-6 bg-[rgba(0,36,68,0.08)] rounded-[var(--radius-md)] border border-dashed border-[rgba(0,36,68,0.2)] inline-block w-full">
           <p className="font-body text-[15px] text-[rgba(0,36,68,0.7)] inline-flex items-center gap-2 flex-wrap justify-center">
             <MapPin size={18} weight="fill" className="text-(--color-primary)" /> <strong className="text-(--color-primary)">Ado Ekiti, Ekiti State</strong> &nbsp;·&nbsp;
             <WhatsappLogo size={18} weight="fill" className="text-[#25D366]" />{" "}

@@ -38,18 +38,6 @@ export default function VideoShowcase() {
         video.pause();
     }, [isVisible, isLoaded]);
 
-    const togglePlay = () => {
-        const video = videoRef.current;
-        if (!video) return;
-        if (video.paused) {
-            video.play();
-            setIsPlaying(true);
-        } else {
-            video.pause();
-            setIsPlaying(false);
-        }
-    };
-
     return (
         <section
             ref={sectionRef}
@@ -78,7 +66,7 @@ export default function VideoShowcase() {
                         </h2>
 
                         <p
-                            className="font-body text-[16px] text-white/68 max-w-90 leading-[1.8] m-0"
+                            className="font-body text-base text-white/68 max-w-90 leading-[1.8] m-0"
                         >
                             Watch how we craft every plate, from the steaming Ofada Rice to
                             the rich Ayamase stew loaded with insides of meat.

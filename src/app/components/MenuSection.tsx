@@ -49,30 +49,30 @@ export default function MenuSection() {
         </div>
 
         {/* Menu card */}
-        <div className="menu-grid grid grid-cols-1 md:grid-cols-2 gap-[2px] rounded-[var(--radius-lg)] overflow-hidden">
+        <div className="menu-grid grid grid-cols-1 md:grid-cols-2 gap-0.5 rounded-lg overflow-hidden">
 
           {/* Image panel */}
-          <div className="reveal-left relative min-h-[500px]">
+          <div className="reveal-left relative min-h-125">
             <Image
               src="/ofada-hero.png"
               alt="Venant Cutlery Signature Ofada Rice"
               width={600} height={600}
-              className="w-full h-full object-cover block min-h-[500px]"
+              className="w-full h-full object-cover block min-h-125"
             />
             {/* Label overlay */}
-            <div className="absolute top-5 left-5 bg-[rgba(0,36,68,0.95)] backdrop-blur-[6px] rounded-[var(--radius-sm)] p-[8px_16px] text-white font-body text-[13px] font-semibold inline-flex items-center gap-[6px]">
+            <div className="absolute top-5 left-5 bg-[rgba(0,36,68,0.95)] backdrop-blur-[6px] rounded-sm py-2 px-4 text-white font-body text-[13px] font-semibold inline-flex items-center gap-1.5">
               <Trophy size={16} weight="fill" color="var(--color-brand-gold)" /> House Special
             </div>
           </div>
 
           {/* Detail panel */}
-          <div className="reveal-right bg-[rgba(255,255,255,0.04)] backdrop-blur-[12px] border border-[rgba(255,255,255,0.07)] p-[40px_36px]">
+          <div className="reveal-right bg-[rgba(255,255,255,0.04)] backdrop-blur-md border border-[rgba(255,255,255,0.07)] py-10 px-9">
             <span className="badge badge-amber mb-4 text-[11px]">Pre-Order Only</span>
 
             <h3 className="font-display font-black text-[clamp(28px,3vw,40px)] text-white leading-[1.1] mb-2 uppercase">
               Signature<br /><span className="text-(--color-brand-gold) italic">Ofada Rice</span>
             </h3>
-            <p className="font-body text-[12px] text-white/40 font-bold tracking-[0.1em] uppercase mb-4">
+            <p className="font-body text-xs text-white/40 font-bold tracking-widest uppercase mb-4">
               With Insides of Meat
             </p>
             <p className="font-body text-[15px] text-white/65 leading-[1.8] mb-7">
@@ -82,26 +82,26 @@ export default function MenuSection() {
             {/* Price */}
             <div className="mb-7">
               {/* Current total */}
-              <div className="flex items-baseline gap-[10px] mb-3">
+              <div className="flex items-baseline gap-2.5 mb-3">
                 <span className="font-display font-black text-[44px] text-(--color-brand-gold)">₦{total.toLocaleString()}</span>
                 <span className="font-body text-[13px] text-white/40">
                   {selected.length === 0 ? "base price" : `(${selected.length} add-on${selected.length > 1 ? "s" : ""})`}
                 </span>
               </div>
               {/* Price range indicator */}
-              <div className="flex items-center justify-between bg-white/5 rounded-[var(--radius-full)] p-[10px_16px] border border-white/8">
+              <div className="flex items-center justify-between bg-white/5 rounded-(--radius-full) py-2.5 px-4 border border-white/8">
                 <div className="text-center">
                   <div className="font-display font-black text-[18px] text-(--color-accent-lime)">₦2,000</div>
-                  <div className="font-body text-[10px] text-white/40 uppercase tracking-[0.08em] mt-[2px]">Base</div>
+                  <div className="font-body text-[10px] text-white/40 uppercase tracking-[0.08em] mt-0.5">Base</div>
                 </div>
-                <div className="flex-1 mx-3 h-[2px] bg-white/10 rounded-[2px] relative">
-                  <div className="absolute left-0 top-0 h-full rounded-[2px] bg-[linear-gradient(90deg,var(--color-accent-lime),var(--color-brand-gold))] transition-[width] duration-300"
+                <div className="flex-1 mx-3 h-0.5 bg-white/10 rounded-xs relative">
+                  <div className="absolute left-0 top-0 h-full rounded-xs bg-[linear-gradient(90deg,var(--color-accent-lime),var(--color-brand-gold))] transition-[width] duration-300"
                     style={{ width: `${((total - 2000) / 1500) * 100}%` }}
                   />
                 </div>
                 <div className="text-center">
                   <div className="font-display font-black text-[18px] text-(--color-brand-gold)">₦3,500</div>
-                  <div className="font-body text-[10px] text-white/40 uppercase tracking-[0.08em] mt-[2px]">Full Setup</div>
+                  <div className="font-body text-[10px] text-white/40 uppercase tracking-[0.08em] mt-0.5">Full Setup</div>
                 </div>
               </div>
             </div>
@@ -117,7 +117,7 @@ export default function MenuSection() {
                   const Icon = addon.icon;
                   return (
                     <button key={addon.id} id={`addon-${addon.id}`} onClick={()=>toggle(addon.id)} aria-pressed={active}
-                      className={`flex items-center gap-[6px] p-[8px_16px] rounded-[var(--radius-full)] font-body text-[13px] font-bold cursor-pointer transition-all duration-200 ${active ? "bg-(--color-accent-lime) text-(--color-primary) border-2 border-(--color-accent-lime) scale-105" : "bg-transparent text-white/70 border-2 border-white/15 scale-100"}`}
+                      className={`flex items-center gap-1.5 py-2 px-4 rounded-(--radius-full) font-body text-[13px] font-bold cursor-pointer transition-all duration-200 ${active ? "bg-(--color-accent-lime) text-(--color-primary) border-2 border-(--color-accent-lime) scale-105" : "bg-transparent text-white/70 border-2 border-white/15 scale-100"}`}
                     >
                       <Icon size={16} weight="fill" />
                       <span>{addon.label}</span>
@@ -129,11 +129,11 @@ export default function MenuSection() {
             </div>
 
             {/* CTA */}
-            <a href={waLink()} target="_blank" rel="noopener noreferrer" id="menu-preorder-btn" className="btn-whatsapp w-full justify-center text-[16px] p-[16px]">
+            <a href={waLink()} target="_blank" rel="noopener noreferrer" id="menu-preorder-btn" className="btn-whatsapp w-full justify-center text-[16px] p-4">
               <WhatsappLogo size={22} weight="fill" />
               Pre-Order Now — ₦{total.toLocaleString()}
             </a>
-            <p className="font-body text-[12px] text-white/30 text-center mt-[10px]">
+            <p className="font-body text-xs text-white/30 text-center mt-2.5">
               Secure your plate in advance · Ado Ekiti, Ekiti State
             </p>
           </div>
@@ -141,7 +141,7 @@ export default function MenuSection() {
       </div>
 
       {/* Wave */}
-      <div className="absolute -bottom-px left-0 right-0 leading-[0] z-2">
+      <div className="absolute -bottom-px left-0 right-0 leading-0 z-2">
         <svg viewBox="0 0 1440 80" preserveAspectRatio="none" className="block w-full h-20">
           <path d="M0,60 C360,0 1080,80 1440,20 L1440,80 L0,80 Z" fill="var(--color-bg-lime)" />
         </svg>

@@ -54,7 +54,7 @@ export default function CTABanner() {
         </h2>
 
         <p
-          className="reveal delay-100 font-body text-[18px] text-[rgba(0,36,68,0.75)] max-w-[520px] mx-auto mb-6 leading-[1.7]"
+          className="reveal delay-100 font-body text-lg text-[rgba(0,36,68,0.75)] max-w-130 mx-auto mb-6 leading-[1.7]"
         >
           Plates sell out fast! Secure your Signature Ofada Rice plate in advance via WhatsApp.
         </p>
@@ -64,7 +64,7 @@ export default function CTABanner() {
           className="reveal delay-200 mb-10 inline-block"
         >
           <span
-            className="bg-(--color-primary) text-(--color-brand-gold) font-display font-black text-[32px] p-[10px_32px] rounded-[var(--radius-full)] inline-block"
+            className="bg-(--color-primary) text-(--color-brand-gold) font-display font-black text-[32px] py-2.5 px-8 rounded-(--radius-full) inline-block"
           >
             Just ₦3,500
           </span>
@@ -78,14 +78,14 @@ export default function CTABanner() {
             target="_blank"
             rel="noopener noreferrer"
             id="cta-banner-preorder-btn"
-            className="btn-whatsapp text-[18px] p-[18px_40px]"
+            className="btn-whatsapp text-lg py-4.5 px-10"
           >
             <WhatsappLogo size={24} weight="fill" />
             Pre-Order on WhatsApp
           </a>
           <a
             href="tel:+2349131166934"
-            className="btn-primary text-[18px] p-[18px_36px]"
+            className="btn-primary text-lg py-4.5 px-9"
           >
             <Phone size={22} weight="fill" />
             Call Us
@@ -94,7 +94,7 @@ export default function CTABanner() {
       </div>
 
       {/* Wave divider */}
-      <div className="absolute -bottom-px left-0 right-0 leading-[0] z-2">
+      <div className="absolute -bottom-px left-0 right-0 leading-0 z-2">
         <svg viewBox="0 0 1440 80" preserveAspectRatio="none" className="block w-full h-20">
           <path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="var(--color-bg-dark)" />
         </svg>

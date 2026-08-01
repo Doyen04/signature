@@ -66,7 +66,7 @@ export default function Navbar() {
             <Link
               key={link.label}
               href={link.href}
-              className="text-white font-body text-[14px] font-medium p-[8px_14px] rounded-[var(--radius-sm)] transition-colors duration-200 no-underline hover:bg-(--color-primary-hover)"
+              className="text-white font-body text-sm font-medium py-2 px-3.5 rounded-[var(--radius-sm)] transition-colors duration-200 no-underline hover:bg-(--color-primary-hover)"
             >
               {link.label}
             </Link>
@@ -78,7 +78,7 @@ export default function Navbar() {
           href={WA_LINK}
           target="_blank"
           rel="noopener noreferrer"
-          className="btn-primary desktop-cta hidden md:inline-flex bg-(--color-brand-gold) border-(--color-brand-gold) text-(--color-primary) font-bold text-[14px] p-[10px_20px]"
+          className="btn-primary desktop-cta hidden md:inline-flex bg-(--color-brand-gold) border-(--color-brand-gold) text-(--color-primary) font-bold text-sm py-2.5 px-5"
         >
           <ShoppingBagOpen size={18} weight="bold" /> Pre-Order Now
         </a>
@@ -107,14 +107,14 @@ export default function Navbar() {
       <div
         id="mobile-menu"
         aria-hidden={!menuOpen}
-        className={`${menuOpen ? "flex" : "hidden"} flex-col p-[16px_24px_24px] border-t border-white/10 gap-1 bg-(--color-primary)`}
+        className={`${menuOpen ? "flex" : "hidden"} flex-col pt-4 px-6 pb-6 border-t border-white/10 gap-1 bg-(--color-primary)`}
       >
         {navLinks.map((link) => (
           <Link
             key={link.label}
             href={link.href}
             onClick={() => setMenuOpen(false)}
-            className="text-white font-body text-[15px] font-medium p-[12px_16px] rounded-[var(--radius-sm)] no-underline transition-colors duration-200 hover:bg-white/10"
+            className="text-white font-body text-[15px] font-medium py-3 px-4 rounded-[var(--radius-sm)] no-underline transition-colors duration-200 hover:bg-white/10"
           >
             {link.label}
           </Link>
