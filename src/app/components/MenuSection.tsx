@@ -97,9 +97,37 @@ export default function MenuSection() {
             </p>
 
             {/* Price */}
-            <div style={{ display:"flex", alignItems:"baseline", gap:10, marginBottom:28 }}>
-              <span style={{ fontFamily:"var(--font-display)", fontWeight:900, fontSize:44, color:"var(--color-brand-gold)" }}>₦{total.toLocaleString()}</span>
-              {selected.length>0 && <span style={{ fontFamily:"var(--font-body)", fontSize:14, color:"rgba(255,255,255,0.3)", textDecoration:"line-through" }}>₦2,000 base</span>}
+            <div style={{ marginBottom:28 }}>
+              {/* Current total */}
+              <div style={{ display:"flex", alignItems:"baseline", gap:10, marginBottom:12 }}>
+                <span style={{ fontFamily:"var(--font-display)", fontWeight:900, fontSize:44, color:"var(--color-brand-gold)" }}>₦{total.toLocaleString()}</span>
+                <span style={{ fontFamily:"var(--font-body)", fontSize:13, color:"rgba(255,255,255,0.4)" }}>
+                  {selected.length === 0 ? "base price" : `(${selected.length} add-on${selected.length > 1 ? "s" : ""})`}
+                </span>
+              </div>
+              {/* Price range indicator */}
+              <div style={{
+                display:"flex", alignItems:"center", justifyContent:"space-between",
+                background:"rgba(255,255,255,0.05)", borderRadius:"var(--radius-full)",
+                padding:"10px 16px", border:"1px solid rgba(255,255,255,0.08)",
+              }}>
+                <div style={{ textAlign:"center" }}>
+                  <div style={{ fontFamily:"var(--font-display)", fontWeight:900, fontSize:18, color:"var(--color-accent-lime)" }}>₦2,000</div>
+                  <div style={{ fontFamily:"var(--font-body)", fontSize:10, color:"rgba(255,255,255,0.4)", textTransform:"uppercase", letterSpacing:"0.08em", marginTop:2 }}>Base</div>
+                </div>
+                <div style={{ flex:1, margin:"0 12px", height:2, background:"rgba(255,255,255,0.1)", borderRadius:2, position:"relative" }}>
+                  <div style={{
+                    position:"absolute", left:0, top:0, height:"100%", borderRadius:2,
+                    background:"linear-gradient(90deg, var(--color-accent-lime), var(--color-brand-gold))",
+                    width: `${((total - 2000) / 1500) * 100}%`,
+                    transition:"width 0.3s ease",
+                  }} />
+                </div>
+                <div style={{ textAlign:"center" }}>
+                  <div style={{ fontFamily:"var(--font-display)", fontWeight:900, fontSize:18, color:"var(--color-brand-gold)" }}>₦3,500</div>
+                  <div style={{ fontFamily:"var(--font-body)", fontSize:10, color:"rgba(255,255,255,0.4)", textTransform:"uppercase", letterSpacing:"0.08em", marginTop:2 }}>Full Setup</div>
+                </div>
+              </div>
             </div>
 
             {/* Add-ons */}
