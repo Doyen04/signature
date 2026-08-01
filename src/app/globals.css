@@ -89,10 +89,13 @@ body {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 var(--sp-10);
+  padding: 0 48px;
 }
 @media (max-width: 768px) {
-  .container { padding: 0 var(--sp-4); }
+  .container { padding: 0 24px; }
+}
+@media (max-width: 480px) {
+  .container { padding: 0 20px; }
 }
 .section    { padding: 96px 0; }
 .section-sm { padding: 64px 0; }

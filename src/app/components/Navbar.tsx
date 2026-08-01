@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { CookingPot, ShoppingCart } from "@phosphor-icons/react";
+import { CookingPot, ShoppingBagOpen } from "@phosphor-icons/react";
 
 const WA_LINK =
   "https://wa.me/2349131166934?text=Hi%20Venant%20Cutlery!%20I'd%20like%20to%20pre-order%20the%20Signature%20Ofada%20Rice.%20%F0%9F%8D%9A";
@@ -43,7 +43,8 @@ export default function Navbar() {
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
-          padding: "18px 40px",
+          paddingTop: 18,
+          paddingBottom: 18,
         }}
       >
         {/* Logo */}
@@ -153,7 +154,7 @@ export default function Navbar() {
             padding: "10px 20px",
           }}
         >
-          <ShoppingCart size={18} weight="bold" /> Pre-Order Now
+          <ShoppingBagOpen size={18} weight="bold" /> Pre-Order Now
         </a>
 
         {/* Hamburger */}
@@ -267,7 +268,7 @@ export default function Navbar() {
             justifyContent: "center",
           }}
         >
-          <ShoppingCart size={18} weight="bold" /> Pre-Order Now
+          <ShoppingBagOpen size={18} weight="bold" /> Pre-Order Now
         </a>
       </div>
 

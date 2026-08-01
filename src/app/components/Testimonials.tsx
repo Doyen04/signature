@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { Star, MapPin, User, Smiley } from "@phosphor-icons/react";
+import { MapPin, User, ThumbsUp } from "@phosphor-icons/react";
 
 const testimonials = [
   {
@@ -32,16 +32,17 @@ const testimonials = [
 
 function StarRating({ count }: { count: number }) {
   return (
-    <div style={{ display: "flex", gap: 3 }}>
-      {Array.from({ length: 5 }).map((_, i) => (
-        <Star
+    <div style={{ display: "flex", gap: 4 }}>
+      {Array.from({ length: count }).map((_, i) => (
+        <span
           key={i}
-          size={16}
-          weight="fill"
           style={{
-            color: i < count ? "var(--color-brand-gold)" : "rgba(255,255,255,0.2)",
+            color: "var(--color-brand-gold)",
+            fontSize: 16,
           }}
-        />
+        >
+          ★
+        </span>
       ))}
     </div>
   );
@@ -82,7 +83,7 @@ export default function Testimonials() {
         {/* Header */}
         <div className="reveal" style={{ textAlign: "center", marginBottom: 64 }}>
           <span className="badge badge-dark" style={{ marginBottom: 16 }}>
-            <Smiley size={18} weight="fill" /> Happy Customers
+            <ThumbsUp size={18} weight="fill" /> Happy Customers
           </span>
           <h2
             style={{

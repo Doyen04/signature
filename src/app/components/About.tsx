@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useRef } from "react";
-import { Flame, Grains, Heart, Clock, Quotes } from "@phosphor-icons/react";
+import { Flame, Grains, Heart, Clock, ChatTeardropText } from "@phosphor-icons/react";
 
 const features = [
   { icon: Flame,  title:"Rich & Spicy",     desc:"Authentic Ayamase brewed with the finest peppers." },
@@ -92,7 +92,7 @@ export default function About() {
               borderLeft:"4px solid var(--color-brand-gold)",
             }}>
               <div style={{ color: "var(--color-brand-gold)", marginBottom: 4 }}>
-                <Quotes size={24} weight="fill" />
+                <ChatTeardropText size={24} weight="fill" />
               </div>
               <p style={{ fontFamily:"var(--font-display)", fontStyle:"italic", fontSize:18, color:"var(--color-brand-gold)", lineHeight:1.4 }}>
                 A rich, spicy, and unforgettable experience made just for you.

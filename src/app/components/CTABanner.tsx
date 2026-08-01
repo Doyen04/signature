@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { CookingPot, WhatsappLogo, PhoneCall } from "@phosphor-icons/react";
+import { CookingPot, WhatsappLogo, Phone } from "@phosphor-icons/react";
 
 const WA_LINK =
   "https://wa.me/2349131166934?text=Hi%20Venant%20Cutlery!%20I'd%20like%20to%20pre-order%20the%20Signature%20Ofada%20Rice.%20%F0%9F%8D%9A";
@@ -144,7 +144,7 @@ export default function CTABanner() {
             className="btn-primary"
             style={{ fontSize: 18, padding: "18px 36px" }}
           >
-            <PhoneCall size={22} weight="fill" />
+            <Phone size={22} weight="fill" />
             Call Us
           </a>
         </div>
