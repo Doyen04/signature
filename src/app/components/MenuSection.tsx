@@ -25,7 +25,7 @@ export default function MenuSection() {
   }, []);
 
   const toggle = (id:string) => setSelected(p => p.includes(id)?p.filter(x=>x!==id):[...p,id]);
-  const total  = 3500 + addOns.filter(a=>selected.includes(a.id)).reduce((s,a)=>s+a.price,0);
+  const total  = 2000 + addOns.filter(a=>selected.includes(a.id)).reduce((s,a)=>s+a.price,0);
   const waLink = () => {
     const labels = addOns.filter(a=>selected.includes(a.id)).map(a=>a.label);
     let m = WA_LINK_BASE;
@@ -99,7 +99,7 @@ export default function MenuSection() {
             {/* Price */}
             <div style={{ display:"flex", alignItems:"baseline", gap:10, marginBottom:28 }}>
               <span style={{ fontFamily:"var(--font-display)", fontWeight:900, fontSize:44, color:"var(--color-brand-gold)" }}>₦{total.toLocaleString()}</span>
-              {selected.length>0 && <span style={{ fontFamily:"var(--font-body)", fontSize:14, color:"rgba(255,255,255,0.3)", textDecoration:"line-through" }}>₦3,500 base</span>}
+              {selected.length>0 && <span style={{ fontFamily:"var(--font-body)", fontSize:14, color:"rgba(255,255,255,0.3)", textDecoration:"line-through" }}>₦2,000 base</span>}
             </div>
 
             {/* Add-ons */}
