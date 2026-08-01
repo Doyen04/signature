@@ -47,6 +47,7 @@ export const metadata: Metadata = {
     images: [
       {
         url: "https://venant-cusine.vercel.app/ofada-hero.png",
+        secureUrl: "https://venant-cusine.vercel.app/ofada-hero.png",
         width: 1200,
         height: 630,
         type: "image/png",
