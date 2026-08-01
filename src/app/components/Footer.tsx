@@ -300,9 +300,51 @@ export default function Footer() {
               fontFamily: "var(--font-body)",
               fontSize: 12,
               color: "rgba(255,255,255,0.25)",
+              display: "flex",
+              alignItems: "center",
+              gap: 6,
             }}
           >
-            Good Food · Great Taste · Worth the Wait
+            <span>Designed &amp; Built by</span>
+            <a
+              href="https://github.com/doyen04"
+              target="_blank"
+              rel="noopener noreferrer"
+              id="built-by-credit"
+              style={{
+                color: "var(--color-brand-gold)",
+                fontWeight: 700,
+                textDecoration: "none",
+                letterSpacing: "0.04em",
+                transition: "opacity 0.2s ease",
+              }}
+              onMouseEnter={(e) =>
+                ((e.target as HTMLElement).style.opacity = "0.75")
+              }
+              onMouseLeave={(e) =>
+                ((e.target as HTMLElement).style.opacity = "1")
+              }
+            >
+              @doyen04
+            </a>
+            <span style={{ color: "rgba(255,255,255,0.15)" }}>·</span>
+            <a
+              href="tel:09138951158"
+              id="built-by-phone"
+              style={{
+                color: "rgba(255,255,255,0.35)",
+                textDecoration: "none",
+                transition: "color 0.2s ease",
+              }}
+              onMouseEnter={(e) =>
+                ((e.target as HTMLElement).style.color = "var(--color-brand-gold)")
+              }
+              onMouseLeave={(e) =>
+                ((e.target as HTMLElement).style.color = "rgba(255,255,255,0.35)")
+              }
+            >
+              0913 895 1158
+            </a>
           </p>
         </div>
       </div>

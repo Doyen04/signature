@@ -4,6 +4,7 @@ import About from "./components/About";
 import MenuSection from "./components/MenuSection";
 import HowItWorks from "./components/HowItWorks";
 import Testimonials from "./components/Testimonials";
+import VideoShowcase from "./components/VideoShowcase";
 import CTABanner from "./components/CTABanner";
 import Footer from "./components/Footer";
 import ScrollReveal from "./components/ScrollReveal";
@@ -18,6 +19,7 @@ export default function Home() {
         <About />
         <MenuSection />
         <HowItWorks />
+        <VideoShowcase />
         <Testimonials />
         <CTABanner />
       </main>
