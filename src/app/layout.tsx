@@ -46,9 +46,10 @@ export const metadata: Metadata = {
     siteName: "Venant Cutlery",
     images: [
       {
-        url: "/ofada-hero.png",
+        url: "https://venant-cusine.vercel.app/ofada-hero.png",
         width: 1200,
         height: 630,
+        type: "image/png",
         alt: "Venant Cutlery Signature Ofada Rice",
       },
     ],
@@ -59,7 +60,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Venant Cutlery — Signature Ofada Rice | Ado Ekiti",
     description: "Good Food. Great Taste. Worth the Wait! Pre-order our Signature Ofada Rice with Insides of Meat today.",
-    images: ["/ofada-hero.png"],
+    images: ["https://venant-cusine.vercel.app/ofada-hero.png"],
   },
 };
 
