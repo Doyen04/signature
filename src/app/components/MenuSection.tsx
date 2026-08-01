@@ -2,12 +2,12 @@
 
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
-import { BowlFood, Trophy, Plant, Egg, Fish, Package, WhatsappLogo, CheckCircle } from "@phosphor-icons/react";
+import { BowlFood, Trophy, Grains, Egg, Fish, Package, WhatsappLogo } from "@phosphor-icons/react";
 
 const WA_LINK_BASE = "https://wa.me/2349131166934?text=Hi%20Venant%20Cutlery!%20I'd%20like%20to%20pre-order%20the%20Signature%20Ofada%20Rice";
 
 const addOns = [
-  { id:"plantain", label:"Plantain", icon: Plant,   price:200 },
+  { id:"plantain", label:"Plantain", icon: Grains,  price:200 },
   { id:"egg",      label:"Egg",      icon: Egg,     price:150 },
   { id:"fish",     label:"Fish",     icon: Fish,    price:350 },
   { id:"ponmo",    label:"Ponmo",    icon: Package, price:250 },

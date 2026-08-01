@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import Image from "next/image";
-import { WhatsappLogo, ArrowRight, Plant, Egg, Fish, Package } from "@phosphor-icons/react";
+import { WhatsappLogo, ArrowRight, Grains, Egg, Fish, Package } from "@phosphor-icons/react";
 
 const WA_LINK =
   "https://wa.me/2349131166934?text=Hi%20Venant%20Cutlery!%20I'd%20like%20to%20pre-order%20the%20Signature%20Ofada%20Rice.%20%F0%9F%8D%9A";
@@ -156,7 +156,7 @@ export default function Hero() {
             <div style={{ display:"flex", gap:12, flexWrap:"wrap", alignItems: "center", justifyContent:"center" }}>
               <span style={{ fontFamily:"var(--font-body)", fontSize:13, color:"rgba(255,255,255,0.4)" }}>Add-ons:</span>
               {[
-                { label: "Plantain", icon: Plant },
+                { label: "Plantain", icon: Grains },
                 { label: "Egg", icon: Egg },
                 { label: "Fish", icon: Fish },
                 { label: "Ponmo", icon: Package },
