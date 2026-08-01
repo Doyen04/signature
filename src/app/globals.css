@@ -242,6 +242,18 @@ body {
 .animate-float      { animation: float 6s ease-in-out infinite; }
 .animate-spin-slow  { animation: spin-slow 20s linear infinite; }
 
+@keyframes vspin    { to { transform: rotate(360deg); } }
+.animate-vspin      { animation: vspin 0.9s linear infinite; }
+
+.play-btn-circle:hover {
+  transform: scale(1.1);
+  box-shadow: 0 12px 40px rgba(247,216,0,0.55);
+}
+
+@media (max-width: 600px) {
+  #video { padding: 64px 0 60px; }
+}
+
 /* === Scroll Reveal === */
 .reveal       { opacity:0; transform:translateY(30px);  transition: opacity 0.65s ease, transform 0.65s ease; }
 .reveal-left  { opacity:0; transform:translateX(-30px); transition: opacity 0.65s ease, transform 0.65s ease; }
