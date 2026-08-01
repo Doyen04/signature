@@ -85,7 +85,7 @@ export default function VideoShowcase() {
                         </p>
 
                         <div className="flex flex-wrap items-center justify-between gap-3 max-w-90 border-white/10 pt-6">
-                            <p className="pt-40 pb-4 badge-amber font-body text-white/80 rounded-full m-0">
+                            <p className="px-4.5 py-2 badge-amber rounded-full bg-white/10 font-body text-[11px] text-white/80 m-0">
                                 From the stove to the plate
                             </p>
                         </div>

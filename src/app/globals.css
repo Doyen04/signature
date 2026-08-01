@@ -69,19 +69,21 @@
 }
 
 /* ===== RESET ===== */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
-img  { max-width: 100%; height: auto; display: block; }
-a    { text-decoration: none; color: inherit; }
+@layer base {
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+  img  { max-width: 100%; height: auto; display: block; }
+  a    { text-decoration: none; color: inherit; }
 
-body {
-  background: var(--color-bg-dark);
-  color: var(--color-text-inverse);
-  font-family: var(--font-body);
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 1.5;
-  min-height: 100vh;
+  body {
+    background: var(--color-bg-dark);
+    color: var(--color-text-inverse);
+    font-family: var(--font-body);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+    min-height: 100vh;
+  }
 }
 
 /* ===== LAYOUT ===== */
