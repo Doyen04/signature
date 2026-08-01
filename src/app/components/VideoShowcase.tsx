@@ -3,127 +3,128 @@
 import { useRef, useState, useEffect } from "react";
 
 export default function VideoShowcase() {
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const sectionRef = useRef<HTMLDivElement>(null);
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [isVisible, setIsVisible] = useState(false);
-  const [isLoaded, setIsLoaded] = useState(false);
+    const videoRef = useRef<HTMLVideoElement>(null);
+    const sectionRef = useRef<HTMLDivElement>(null);
+    const [isPlaying, setIsPlaying] = useState(false);
+    const [isVisible, setIsVisible] = useState(false);
+    const [isLoaded, setIsLoaded] = useState(false);
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting) {
-          setIsVisible(true);
-          observer.disconnect();
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            (entries) => {
+                if (entries[0].isIntersecting) {
+                    setIsVisible(true);
+                    observer.disconnect();
+                }
+            },
+            { threshold: 0.15 }
+        );
+        if (sectionRef.current) observer.observe(sectionRef.current);
+        return () => observer.disconnect();
+    }, []);
+
+    useEffect(() => {
+        const video = videoRef.current;
+        if (!video) return;
+
+        if (isVisible && isLoaded) {
+            video
+                .play()
+                .then(() => setIsPlaying(true))
+                .catch(() => setIsPlaying(false));
+            return;
         }
-      },
-      { threshold: 0.15 }
-    );
-    if (sectionRef.current) observer.observe(sectionRef.current);
-    return () => observer.disconnect();
-  }, []);
 
-  const togglePlay = () => {
-    const video = videoRef.current;
-    if (!video) return;
-    if (video.paused) {
-      video.play();
-      setIsPlaying(true);
-    } else {
-      video.pause();
-      setIsPlaying(false);
-    }
-  };
+        video.pause();
+    }, [isVisible, isLoaded]);
 
-  return (
-    <section
-      ref={sectionRef}
-      id="video"
-      aria-label="Demonstration video"
-      className="bg-[var(--color-primary)] py-24 pb-20 relative overflow-hidden"
-    >
-      {/* Decorative ring 1 */}
-      <div className="animate-spin-slow absolute -top-[60px] -right-[60px] w-[220px] h-[220px] rounded-full border-2 border-dashed border-white/[0.06] pointer-events-none z-0" />
+    const togglePlay = () => {
+        const video = videoRef.current;
+        if (!video) return;
+        if (video.paused) {
+            video.play();
+            setIsPlaying(true);
+        } else {
+            video.pause();
+            setIsPlaying(false);
+        }
+    };
 
-      {/* Decorative ring 2 */}
-      <div className="animate-spin-slow [animation-direction:reverse] absolute -bottom-[40px] -left-[40px] w-[160px] h-[160px] rounded-full border-2 border-dashed border-[rgba(247,216,0,0.12)] pointer-events-none z-0" />
+    return (
+        <section
+            ref={sectionRef}
+            id="video"
+            aria-label="Demonstration video"
+            className="bg-(--color-primary) h-screen w-full relative overflow-hidden -mt-px flex items-center"
+        >
+            {/* Decorative ring 1 */}
+            <div className="animate-spin-slow absolute -top-15 -right-15 w-55 h-55 rounded-full border-2 border-dashed border-white/6 pointer-events-none z-0" />
 
-      <div className="container relative z-[1]">
+            {/* Decorative ring 2 */}
+            <div className="animate-spin-slow [animation-direction:reverse] absolute -bottom-10 -left-10 w-40 h-40 rounded-full border-2 border-dashed border-[rgba(247,216,0,0.12)] pointer-events-none z-0" />
 
-        {/* Heading block */}
-        <div className="text-center mb-12">
-          <p className="font-[var(--font-body)] text-xs font-bold tracking-[0.18em] uppercase text-[var(--color-brand-gold)] mb-3">
-            See It in Action
-          </p>
-          <h2 className="font-[var(--font-display)] font-black text-[clamp(32px,5vw,56px)] text-white leading-[1.05] tracking-[-0.02em] uppercase">
-            The{" "}
-            <span className="text-[var(--color-brand-gold)] italic">
-              Experience
-            </span>
-          </h2>
-          <p className="font-[var(--font-body)] text-[clamp(14px,1.5vw,16px)] text-white/55 max-w-[480px] mx-auto mt-4 leading-[1.7]">
-            Watch how we craft every plate - from the steaming Ofada Rice to
-            the rich Ayamase stew, loaded with insides of meat.
-          </p>
-        </div>
+            <div className="absolute -top-12 inset-x-0 h-12 bg-(--color-primary) pointer-events-none z-1" />
 
-        {/* Video player */}
-        <div className="max-w-[860px] mx-auto rounded-3xl overflow-hidden relative shadow-[0_32px_80px_rgba(0,0,0,0.6),0_0_0_1px_rgba(255,255,255,0.08)] bg-black aspect-video">
+            <div className="container relative z-1">
+                <div className="grid gap-10 md:gap-16 lg:gap-20 md:grid-cols-1 lg:grid-cols-[minmax(350px,1fr)_minmax(500px,1.2fr)] lg:items-start">
+                    <div className="reveal lg:max-w-105 lg:pr-10 w-full flex flex-col justify-center h-full gap-8">
+                        <h2
+                            className="font-display font-black text-[clamp(40px,5.6vw,74px)] text-white leading-[0.95] uppercase tracking-[-0.03em] max-w-90 m-0"
+                        >
+                            <span className="block">THE</span>
+                            <span className="block text-(--color-brand-gold) italic">
+                                Experience
+                            </span>
+                        </h2>
 
-          {/* Gold inset border overlay */}
-          <div className="absolute inset-0 rounded-3xl pointer-events-none z-[2] shadow-[inset_0_0_0_1px_rgba(247,216,0,0.25)]" />
+                        <p
+                            className="font-body text-[16px] text-white/68 max-w-90 leading-[1.8] m-0"
+                        >
+                            Watch how we craft every plate, from the steaming Ofada Rice to
+                            the rich Ayamase stew loaded with insides of meat.
+                        </p>
 
-          {/* Video — injected only once section is visible */}
-          {isVisible && (
-            <video
-              ref={videoRef}
-              playsInline
-              preload="metadata"
-              onCanPlay={() => setIsLoaded(true)}
-              onEnded={() => setIsPlaying(false)}
-              className="w-full h-full object-cover block rounded-[22px]"
-            >
-              <source src="/demonstration.mp4" type="video/mp4" />
-              Your browser does not support HTML5 video.
-            </video>
-          )}
+                        <div className="flex flex-wrap items-center justify-between gap-3 max-w-90 border-white/10 pt-6">
+                            <p className="pt-40 pb-4 badge-amber font-body text-white/80 rounded-full m-0">
+                                From the stove to the plate
+                            </p>
+                        </div>
+                    </div>
 
-          {/* Loading skeleton */}
-          {(!isVisible || !isLoaded) && (
-            <div className="absolute inset-0 bg-gradient-to-br from-[#1c1c1c] via-[#111] to-[#1c1c1c] flex items-center justify-center z-[1]">
-              <div className="animate-vspin w-14 h-14 rounded-full border-[3px] border-[rgba(247,216,0,0.25)] border-t-[var(--color-brand-gold)]" />
+                    <div className="reveal-right h-full lg:justify-self-end lg:w-full lg:max-w-160">
+                        <div className="relative h-full min-h-105 rounded-4xl bg-[rgba(255,255,255,0.04)] p-3 border border-white/8 shadow-[0_24px_72px_rgba(0,0,0,0.45)]">
+
+                            <div className="relative h-full min-h-105 overflow-hidden rounded-3xl bg-black">
+                                <div className="absolute inset-0 rounded-3xl pointer-events-none z-2 shadow-[inset_0_0_0_1px_rgba(247,216,0,0.25)]" />
+
+                                {isVisible && (
+                                    <video
+                                        ref={videoRef}
+                                        playsInline
+                                        muted
+                                        autoPlay
+                                        loop
+                                        preload="metadata"
+                                        onCanPlay={() => setIsLoaded(true)}
+                                        onPause={() => setIsPlaying(false)}
+                                        onEnded={() => setIsPlaying(false)}
+                                        className="absolute inset-0 w-full h-full object-cover block rounded-3xl"
+                                    >
+                                        <source src="/demonstration.mp4" type="video/mp4" />
+                                        Your browser does not support HTML5 video.
+                                    </video>
+                                )}
+
+                                {(!isVisible || !isLoaded) && (
+                                    <div className="absolute inset-0 bg-linear-to-br from-[#1c1c1c] via-[#111] to-[#1c1c1c] flex items-center justify-center z-1">
+                                        <div className="animate-vspin w-14 h-14 rounded-full border-[3px] border-[rgba(247,216,0,0.25)] border-t-(--color-brand-gold)" />
+                                    </div>
+                                )}
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          )}
-
-          {/* Play / Pause overlay button */}
-          {isLoaded && (
-            <button
-              onClick={togglePlay}
-              aria-label={isPlaying ? "Pause video" : "Play video"}
-              id="video-play-btn"
-              className={[
-                "absolute inset-0 flex items-center justify-center",
-                "bg-transparent border-none cursor-pointer z-[3]",
-                "transition-opacity duration-300",
-                isPlaying ? "opacity-0 hover:opacity-100" : "opacity-100",
-              ].join(" ")}
-            >
-              <div className="play-btn-circle w-[72px] h-[72px] rounded-full bg-[var(--color-brand-gold)] flex items-center justify-center shadow-[0_8px_32px_rgba(247,216,0,0.4)] transition-[transform,box-shadow] duration-200">
-                {isPlaying ? (
-                  <svg width="26" height="26" viewBox="0 0 24 24" fill="var(--color-primary)">
-                    <rect x="6" y="4" width="4" height="16" rx="1" />
-                    <rect x="14" y="4" width="4" height="16" rx="1" />
-                  </svg>
-                ) : (
-                  <svg width="26" height="26" viewBox="0 0 24 24" fill="var(--color-primary)" className="ml-1">
-                    <path d="M6 4l14 8-14 8V4z" />
-                  </svg>
-                )}
-              </div>
-            </button>
-          )}
-        </div>
-      </div>
-    </section>
-  );
+        </section>
+    );
 }

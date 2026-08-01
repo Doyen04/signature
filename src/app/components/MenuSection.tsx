@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
-import { BowlFood, Trophy, Grains, Egg, Fish, Package, WhatsappLogo } from "@phosphor-icons/react";
+import { Trophy, Grains, Egg, Fish, Package, WhatsappLogo } from "@phosphor-icons/react";
 
 const WA_LINK_BASE = "https://wa.me/2349131166934?text=Hi%20Venant%20Cutlery!%20I'd%20like%20to%20pre-order%20the%20Signature%20Ofada%20Rice";
 
@@ -41,9 +41,6 @@ export default function MenuSection() {
 
         {/* Header */}
         <div className="reveal" style={{ textAlign:"center", marginBottom:72 }}>
-          <span className="badge badge-dark" style={{ marginBottom:16 }}>
-            <BowlFood size={18} weight="fill" /> Signature Menu
-          </span>
           <h2 style={{
             fontFamily:"var(--font-display)",
             fontWeight:900,
